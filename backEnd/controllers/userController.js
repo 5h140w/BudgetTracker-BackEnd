@@ -20,7 +20,7 @@ module.exports.login = async(req,res) =>{
 
 
 
-module.exports.signup = async(req,res)=>{
+module.exports.register = async(req,res)=>{
     const {email,username,password} = req.body
     const existedUser = await User.find({ $or :[ {email: email.toLowerCase},{ username:username}]})
     if(existedUser.length !== 0) return res.status(404).json({"msg":"email or username already existed!"})
