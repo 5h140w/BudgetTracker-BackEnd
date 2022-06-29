@@ -53,7 +53,7 @@ module.exports.changeData = async(req,res) =>{
 
     const newUser = await User.findByIdAndUpdate(id , {email,username})
     if(!newUser){
-        return res.status(404).json({"msg":"Inexistant user"})
+        return res.status(404).json({"msg":"Nonexistent user"})
     }
     return res.status(200).json({"msg":"updated"})
 

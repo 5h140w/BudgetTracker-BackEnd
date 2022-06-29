@@ -27,5 +27,16 @@ module.exports.addCategory = async(req,res) =>{
             return res.status(404).json({"msg":err.message})
         }
     )
+}
 
+
+module.exports.modifyCategory = async(req,res) =>{
+    const {id} = req.params
+    const {name,description} = req.body
+
+    const updatedCategory = await Category.findByIdAndUpdate({_id: id},{name,description})
+    if(!updatedCategory){
+        return res.status(404).json({"msg":"Nonexistent Category"})
+    }
+    return res.status(200).json({"msg":"updated!"})
 }

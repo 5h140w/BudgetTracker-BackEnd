@@ -6,5 +6,6 @@ const router = Router()
 
 router.get("/all", categoryController.getAllCategories)
 router.post("/",categoryController.addCategory)
+router.put("/:id", categoryController.modifyCategory)
 
 module.exports = router
