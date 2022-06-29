@@ -32,13 +32,29 @@ module.exports.register = async(req,res)=>{
 
     newUser.save()
         .then(
-            ()=> {
-                return res.status(200).json({"msg":"Welcome!"})
+            (data)=> {
+                let token= jwt.sign(
+                    {user_id:data._id},
+                    ".....",
+                    {expiresIn:"2h"}
+                )
+                return res.status(200).json({"msg":"Welcome!","token":token})
             }
         ).catch(
             (err)=>{
                 return res.status(404).jsohn({"msg":err.message})
             }
         )
+}
+
+
+module.exports.changeData = async(req,res) =>{
+    const {id,email,username} = req.body
+
+    const newUser = await User.findByIdAndUpdate(id , {email,username})
+    if(!newUser){
+        return res.status(404).json({"msg":"Inexistant user"})
+    }
+    return res.status(200).json({"msg":"updated"})
 
 }
