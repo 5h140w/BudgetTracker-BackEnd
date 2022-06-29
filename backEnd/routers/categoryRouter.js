@@ -5,6 +5,7 @@ const router = Router()
 
 
 router.get("/all", categoryController.getAllCategories)
+router.get("/:id",categoryController.getCategoryById)
 router.post("/",categoryController.addCategory)
 router.put("/:id", categoryController.modifyCategory)
 
