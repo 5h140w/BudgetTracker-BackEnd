@@ -6,12 +6,22 @@ module.exports.getAllCategories = async(req,res) =>{
     return res.status(200).json(categories)
 }
 
+module.exports.getCategoryById = async(req,res) =>{
+    const {id} = req.params
+
+    const cat = Category.findById({_id:id})
+    
+    if(!cat) return res.status(404).json({"msg":"Nonexistent category"})
+
+    return res.status(200).json(cat)
+}
+
 
 module.exports.addCategory = async(req,res) =>{
     const {name, description} = req.body
 
     const cat= await Category.findOne({name: name.toLowerCase()})
-    if(cat) return res.status(404).json({"msg":"name shoumd be unique"})
+    if(cat) return res.status(404).json({"msg":"name should be unique"})
 
     const newCategory = new Category({
         name : name.toLowerCase(),
