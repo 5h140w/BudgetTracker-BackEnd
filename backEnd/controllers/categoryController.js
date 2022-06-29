@@ -10,7 +10,6 @@ module.exports.getCategoryById = async(req,res) =>{
     const {id} = req.params
 
     const cat = await Category.findOne({_id:id})
-    console.log(cat)    
     if(!cat) return res.status(404).json({"msg":"Nonexistent category"})
 
     return res.status(200).json(cat)
