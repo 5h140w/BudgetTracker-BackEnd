@@ -49,3 +49,33 @@ module.exports.modifyCategory = async(req,res) =>{
     }
     return res.status(200).json({"msg":"updated!"})
 }
+
+
+module.exports.deleteAll = (req,res)=>{
+    Category.deleteAll()
+        .then(
+            ()=>{
+                return res.status(200).json({"msg":"all categories are deleted!"})
+            }
+        )
+        .catch(
+            (err)=>{
+                return res.status(404).json({"msg":err.message})
+            }
+        )
+}
+
+
+module.exports.deleteById = (req,res)=>{
+    Category.deleteById(req.params.id)
+        .then(
+            ()=>{
+                return res.status(200).json({"msg":"category is deleted"})
+            }
+        )
+        .catch(
+            (err)=>{
+                return res.status(404).json({"msg":err.message})
+            }
+        )
+}
