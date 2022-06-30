@@ -3,6 +3,8 @@ const Expense = require("../models/expense")
 
 module.exports.getAllExpenses = async(req,res) =>{
     const expenses = await Expense.find()
+                            .populate("category")
+                            .populate("user")
     return res.status(200).json(expenses)
 }
 
