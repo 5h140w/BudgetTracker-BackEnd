@@ -49,7 +49,8 @@ module.exports.register = async(req,res)=>{
 
 
 module.exports.changeData = async(req,res) =>{
-    const {id,email,username} = req.body
+    const {id} = req.params
+    const {email,username} = req.body
 
     const newUser = await User.findByIdAndUpdate(id , {email,username})
     if(!newUser){
