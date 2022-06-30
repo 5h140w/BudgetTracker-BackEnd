@@ -67,7 +67,7 @@ module.exports.deleteAll = (req,res)=>{
 
 
 module.exports.deleteById = (req,res)=>{
-    Category.deleteById(req.params.id)
+    Category.deleteOne({_id: req.params.id})
         .then(
             ()=>{
                 return res.status(200).json({"msg":"category is deleted"})

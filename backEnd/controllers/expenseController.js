@@ -53,7 +53,7 @@ module.exports.addExpense = async(req,res)=>{
 
 
 module.exports.deleteExpense = (req,res) =>{
-    Expense.deleteById(req.params.id)
+    Expense.deleteOne({_id: req.params.id})
         .then(
             ()=>{
                 return res.status(200).json({"msg":"expense is deleted"})
