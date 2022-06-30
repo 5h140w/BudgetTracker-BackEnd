@@ -8,6 +8,4 @@ router.get("/:id", expenseController.getExpenseById)
 router.post("/",expenseController.addExpense)
 
 
-
-
 module.exports = router
