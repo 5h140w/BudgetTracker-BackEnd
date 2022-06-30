@@ -47,6 +47,19 @@ module.exports.register = async(req,res)=>{
         )
 }
 
+module.exports.getAllUsers = async (req,res)=>{
+    const allusers = await User.find()
+
+    return res.status(200).json(allusers)
+    
+}
+
+module.exports.getUserById = async(req,res)=>{
+    const user = User.findById(req.params.id)
+    if(!user) return res.status(404).json({"msg":"Nonexistent user"})
+
+    return res.status(200).json(user)
+}
 
 module.exports.changeData = async(req,res) =>{
     const {id} = req.params
