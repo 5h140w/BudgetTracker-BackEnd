@@ -50,3 +50,35 @@ module.exports.addExpense = async(req,res)=>{
         }
     )
 }
+
+
+module.exports.deleteExpense = (req,res) =>{
+    Expense.deleteById(req.params.id)
+        .then(
+            ()=>{
+                return res.status(200).json({"msg":"expense is deleted"})
+            }
+        )
+        .catch(
+            (err)=>{
+                return res.status(404).json({"msg":err.message})
+            }
+        )
+}
+
+
+
+
+module.exports.deleteAll = (req,res)=>{
+    Category.deleteAll()
+        .then(
+            ()=>{
+                return res.status(200).json({"msg":"all expenses are deleted!"})
+            }
+        )
+        .catch(
+            (err)=>{
+                return res.status(404).json({"msg":err.message})
+            }
+        )
+}
