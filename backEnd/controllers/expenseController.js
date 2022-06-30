@@ -11,6 +11,8 @@ module.exports.getExpenseById = async(req,res) =>{
     const {id} = req.params
     
     Expense.findOne({_id:id})
+        .populate("category")
+        .populate("user")
         .then(
             (data)=>{
                 return res.status(200).json(data)
@@ -25,7 +27,7 @@ module.exports.getExpenseById = async(req,res) =>{
 }
 
 
-module.exports.addExpense = async(res,res)=>{
+module.exports.addExpense = async(req,res)=>{
     const {name,description,category,amount,user} = req.body
 
     const newExpense = new Expense({
