@@ -3,6 +3,6 @@ const userController = require("../controllers/userController")
 
 const router = Router()
 
-router.put("/:id",userController.changeData)
+router.put("/changeData/:id",userController.changeData)
 
 module.exports = router
