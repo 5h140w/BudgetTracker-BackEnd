@@ -23,3 +23,26 @@ module.exports.getExpenseById = async(req,res) =>{
         )
 
 }
+
+
+module.exports.addExpense = async(res,res)=>{
+    const {name,description,category,amount,user} = req.body
+
+    const newExpense = new Expense({
+        name:name.toLowerCase(),
+        description : description,
+        category:category,
+        amount:amount,
+        user:user
+    })
+
+    newExpense.save().then(
+        ()=>{
+            return res.status(200).json({"msg":"expense Added"})
+        }
+    ).catch(
+        (err)=>{
+            return res.status(404).json({"msg":err.message})
+        }
+    )
+}
