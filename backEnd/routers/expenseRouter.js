@@ -6,6 +6,7 @@ const router = Router()
 router.get("/all", expenseController.getAllExpenses)
 router.get("/:id", expenseController.getExpenseById)
 router.post("/",expenseController.addExpense)
-
+router.delete("/",expenseController.deleteAll)
+router.delete("/:id",expenseController.deleteExpense)
 
 module.exports = router
