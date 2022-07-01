@@ -28,7 +28,7 @@ const WelcomePage = () =>{
                 name:name,
                 description:description,
                 category : category,
-                amount : parseInt(amount),
+                amount : parseFloat(amount),
                 user : getUserID()
             }
         ).then(
@@ -49,7 +49,7 @@ const WelcomePage = () =>{
                 </div>
                 <div className=''>
                     <label>Amount</label>
-                    <input type="number" required={true} onChange={(e)=>setamount(e.target.value)}/>
+                    <input type="number" required={true} onChange={(e)=>setamount(e.target.value)} step="0.001"/>
                 </div>
                 <div className=''>
                     <label>Category</label>
