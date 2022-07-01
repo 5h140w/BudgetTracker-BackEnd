@@ -1,5 +1,5 @@
 import jwt_decode from "jwt-decode";
 
-export default getUserID = async () =>{
-    console.log(jwt_decode(sessionStorage.getItem("token")))
+export const getUserID = ()=>{
+    return jwt_decode(sessionStorage.getItem("token")).user_id
 }   
