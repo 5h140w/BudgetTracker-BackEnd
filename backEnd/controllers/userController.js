@@ -4,7 +4,6 @@ const jwt = require("jsonwebtoken")
 
 module.exports.login = async(req,res) =>{
     const {email,password} = req.body
-    console.log(password , email)
     const loginUser = await User.findOne({email:email.toLowerCase()})
     if(!loginUser) return res.status(404).json({"msg":"not account"})
     const comparedPwd = bcrypt.compareSync(password, loginUser.password)
