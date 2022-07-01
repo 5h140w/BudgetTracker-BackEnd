@@ -70,7 +70,7 @@ module.exports.deleteExpense = (req,res) =>{
 
 
 module.exports.deleteAll = (req,res)=>{
-    Category.deleteAll()
+    Expense.deleteMany()
         .then(
             ()=>{
                 return res.status(200).json({"msg":"all expenses are deleted!"})

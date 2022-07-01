@@ -52,7 +52,7 @@ module.exports.modifyCategory = async(req,res) =>{
 
 
 module.exports.deleteAll = (req,res)=>{
-    Category.deleteAll()
+    Category.deleteMany()
         .then(
             ()=>{
                 return res.status(200).json({"msg":"all categories are deleted!"})
