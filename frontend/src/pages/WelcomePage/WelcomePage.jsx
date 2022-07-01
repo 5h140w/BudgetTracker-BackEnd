@@ -32,7 +32,10 @@ const WelcomePage = () =>{
                 user : getUserID()
             }
         ).then(
-            (data) => console.log(data)
+            (data) => {
+                console.log(data)
+                window.location.reload(false)
+            }
         ).catch(
             (err)=> console.log(err)
         )
