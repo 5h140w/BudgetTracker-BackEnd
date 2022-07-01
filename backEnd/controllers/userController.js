@@ -4,12 +4,13 @@ const jwt = require("jsonwebtoken")
 
 module.exports.login = async(req,res) =>{
     const {email,password} = req.body
+    console.log(password , email)
     const loginUser = await User.findOne({email:email.toLowerCase()})
     if(!loginUser) return res.status(404).json({"msg":"not account"})
     const comparedPwd = bcrypt.compareSync(password, loginUser.password)
     if(comparedPwd){
         let token = jwt.sign(
-            {user_id : user.id},
+            {user_id : loginUser.id},
             ".....",
             {expiresIn:"2h"}
         )
@@ -22,7 +23,8 @@ module.exports.login = async(req,res) =>{
 
 module.exports.register = async(req,res)=>{
     const {email,username,password} = req.body
-    const existedUser = await User.find({ $or :[ {email: email.toLowerCase},{ username:username}]})
+    const existedUser = await User.find({ $or :[ {email: email.toLowerCase()},{ username:username}]})
+    console.log(existedUser)
     if(existedUser.length !== 0) return res.status(404).json({"msg":"email or username already existed!"})
     const newUser = new User({
         username : username.toLowerCase(),
@@ -42,7 +44,7 @@ module.exports.register = async(req,res)=>{
             }
         ).catch(
             (err)=>{
-                return res.status(404).jsohn({"msg":err.message})
+                return res.status(404).json({"msg":err.message})
             }
         )
 }

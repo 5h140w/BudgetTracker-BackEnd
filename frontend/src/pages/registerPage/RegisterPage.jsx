@@ -2,6 +2,7 @@ import React from 'react'
 import { useState } from 'react'
 import "./registerPage.css"
 import axios from 'axios'
+import { useNavigate } from 'react-router-dom'
 
 const RegisterPage = () =>{
     const [email, setemail] = useState("")
@@ -9,21 +10,25 @@ const RegisterPage = () =>{
     const [password, setpassword] = useState("")
     const [error, seterror] = useState("")
 
+    let navigate = useNavigate()
+
     const clicked = (e) =>{
         e.preventDefault()
         axios.post(
             "http://localhost:8080/auth/register",{
                 email:email,
-                username,username,
+                username:username,
                 password:password
             }
         ).then(
-            (data)=>{
-                console.log(data)
+            (res)=>{
+                console.log(res.data.msg)
+                sessionStorage.setItem("token", res.data.token)
+                navigate("/")
             }
         ).catch(
             (err)=>{
-                console.log(err)
+                seterror(err.response.data.msg)
             }
         )
 

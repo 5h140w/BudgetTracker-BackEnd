@@ -17,12 +17,12 @@ const LoginPage = () =>{
         axios.post(
             "http://localhost:8080/auth/login",{
                 email: email,
-                passowrd: password
+                password: password
             }       
         ).then(
-            (data)=>{
-                console.log(data)
-                sessionStorage.setItem("token", data)
+            (res)=>{
+                console.log(res)
+                sessionStorage.setItem("token", res.data.token)
                 navigate("/")
             }
         ).catch(
@@ -43,7 +43,7 @@ const LoginPage = () =>{
                             <input type="email" placeholder='email' required={true} onChange={(e)=> setemail(e.target.value)}/>
                         </div>
                         <div className='form-group'>
-                            <label>passoword</label>
+                            <label>password</label>
                             <input type="password" placeholder='password' required={true} onChange={(e)=> setpassword(e.target.value)}/>
                         </div>
                         <input type="submit" value="submit"/>
