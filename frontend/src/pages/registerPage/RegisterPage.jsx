@@ -1,46 +1,48 @@
 import React from 'react'
-import "./loginPage.css"
-import axios from "axios"
 import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import "./registerPage.css"
+import axios from 'axios'
 
-
-const LoginPage = () =>{
-    const [email,setemail] = useState("")
-    const [password , setpassword] = useState("")
-    const [error,setError] = useState("")
-    const navigate = useNavigate()
+const RegisterPage = () =>{
+    const [email, setemail] = useState("")
+    const [username, setusername]= useState("")
+    const [password, setpassword] = useState("")
+    const [error, seterror] = useState("")
 
     const clicked = (e) =>{
         e.preventDefault()
-        console.log("clicked")
         axios.post(
-            "http://localhost:8080/auth/login",{
-                email: email,
-                passowrd: password
-            }       
+            "http://localhost:8080/auth/register",{
+                email:email,
+                username,username,
+                password:password
+            }
         ).then(
             (data)=>{
                 console.log(data)
-                sessionStorage.setItem("token", data)
-                navigate("/")
             }
         ).catch(
             (err)=>{
-                setError(err.response.data.msg)
+                console.log(err)
             }
         )
+
     }
-    return(
+
+    return (
         <>
-            <div className='login_section'>
-                <div className='login_container'>
-                    <h1> Login </h1>
+            <div className='register_section'>
+                <div className='register_container'>
+                    <h1> Register </h1>
                     <p>{error}</p>
                     <form onSubmit={clicked}>
                         <div className='form-group'>
                             <label>Email</label>
                             <input type="email" placeholder='email' required={true} onChange={(e)=> setemail(e.target.value)}/>
+                        </div>
+                        <div className='form-group'>
+                            <label>username</label>
+                            <input type="text" placeholder='username' required={true} onChange={(e)=> setusername(e.target.value)}/>
                         </div>
                         <div className='form-group'>
                             <label>passoword</label>
@@ -54,4 +56,4 @@ const LoginPage = () =>{
     )
 }
 
-export default LoginPage
+export default RegisterPage
