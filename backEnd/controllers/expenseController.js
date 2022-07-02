@@ -112,5 +112,10 @@ module.exports.totalamount = async(req,res)=>{
     return res.status(200).json({"msg": totalAmount})
 }
 
+module.exports.getEpensePerdat = async(req,res) =>{
+    const {user} = req.params
+    const TodayExpense = await Expense.find({date :new Date(), user:user})
+    return res.status(200).json(TodayExpense)
 
+}
 
