@@ -37,7 +37,8 @@ module.exports.addExpense = async(req,res)=>{
         description : description,
         category:category,
         amount:amount,
-        user:user
+        user:user,
+        date : new Date().toLocaleDateString()
     })
 
     newExpense.save().then(
