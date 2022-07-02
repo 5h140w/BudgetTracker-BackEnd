@@ -98,3 +98,16 @@ module.exports.getUserExpenses = (req,res) =>{
             }
         )
 }
+
+
+module.exports.totalamount = async(req,res)=>{
+    const {user} = req.params
+    const totalExpenses = await Expense.find({user:user})
+    const totalAmount = 0
+    totalExpenses.map(
+        (exp) =>{
+            total += exp.amount
+        }
+    ) 
+    return res.status(200).json({"msg": total})
+}
