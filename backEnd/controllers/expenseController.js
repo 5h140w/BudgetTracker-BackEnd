@@ -111,3 +111,6 @@ module.exports.totalamount = async(req,res)=>{
     ) 
     return res.status(200).json({"msg": totalAmount})
 }
+
+
+
