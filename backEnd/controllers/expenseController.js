@@ -85,19 +85,16 @@ module.exports.deleteAll = (req,res)=>{
 }
 
 
-module.exports.getUserExpenses = (req,res) =>{
+module.exports.getUserExpenses = async(req,res) =>{
     const {user} = req.params
-    Expense.find({user:user})
-        .then(
-            (data) =>{
-                return res.status(200).json(data)
-            }
-        )
-        .catch(
-            (err) =>{
-                return res.status(404).json({"msg":err.message})
-            }
-        )
+    const totalExpenses = await Expense.find({user:user})
+    let totalAmount = 0
+    totalExpenses.map(
+        (exp) =>{
+            totalAmount += exp.amount
+        }
+    ) 
+    return res.status(200).json({"amount": totalAmount, "data": totalExpenses})
 }
 
 
@@ -126,4 +123,14 @@ module.exports.getExpenseToday = async(req,res) =>{
 
 }
 
-
+module.exports.todayAmount = async(req,res)=>{
+    const {user} = req.params
+    const TodayExpense = await Expense.find({date :new Date().toLocaleDateString(), user:user})
+    let todayAmount = 0
+    TodayExpense.map(
+        (exp) =>{
+            todayAmount += exp.amount
+        }
+    ) 
+    return res.status(200).json({"msg": todayAmount})
+}
