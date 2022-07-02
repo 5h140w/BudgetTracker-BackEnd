@@ -82,3 +82,19 @@ module.exports.deleteAll = (req,res)=>{
             }
         )
 }
+
+
+module.exports.getUserExpenses = (req,res) =>{
+    const {user} = req.params
+    Expense.find({user:user})
+        .then(
+            (data) =>{
+                return res.status(200).json(data)
+            }
+        )
+        .catch(
+            (err) =>{
+                return res.status(404).json({"msg":err.message})
+            }
+        )
+}
