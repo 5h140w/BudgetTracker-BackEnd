@@ -114,7 +114,7 @@ module.exports.totalamount = async(req,res)=>{
 
 module.exports.getExpenseToday = async(req,res) =>{
     const {user} = req.params
-    const TodayExpense = await Expense.find({date :new Date(), user:user})
+    const TodayExpense = await Expense.find({date :new Date().toLocaleDateString(), user:user})
     return res.status(200).json(TodayExpense)
 
 }
