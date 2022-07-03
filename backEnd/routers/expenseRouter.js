@@ -14,5 +14,4 @@ router.delete("/",expenseController.deleteAll)
 router.delete("/:id",expenseController.deleteExpense)
 
 
-
 module.exports = router
