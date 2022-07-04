@@ -35,6 +35,23 @@ module.exports.register = async(req,res)=>{
     newUser.save()
         .then(
             (data)=> {
+                let transporter = nodeMailer.createTransport({
+                    service: "gmail",
+                    auth:{
+                        user:"23che.di@gmail.com",
+                        pass:"Myperfect23"
+                    }
+                })
+                let mailOptions = {
+                    from: '23che.di@gmail.com',
+                    to: email,
+                    subject: `The subject goes here`,
+                    html: `The body of the email goes here in HTML`,
+                };
+
+                transporter.sendMail(mailOptions, ()=>{
+                    console.log("Email Sent!")
+                })
 
                 let token= jwt.sign(
                     {user_id:data._id},
