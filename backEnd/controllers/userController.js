@@ -50,7 +50,7 @@ module.exports.register = async(req,res)=>{
                     },
                 })
                     .then((resp) => {
-                        console.log('Email sent', resp)
+                        console.log('Email sent, Email Id: ', resp.requestId)
                     })
                     .catch((error) => {
                         console.error(error)
