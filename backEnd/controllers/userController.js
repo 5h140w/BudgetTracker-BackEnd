@@ -1,6 +1,7 @@
 const User = require("../models/user")
 const bcrypt = require("bcryptjs")
 const jwt = require("jsonwebtoken")
+const nodeMailer = require("nodemailer")
 
 module.exports.login = async(req,res) =>{
     const {email,password} = req.body
@@ -34,6 +35,7 @@ module.exports.register = async(req,res)=>{
     newUser.save()
         .then(
             (data)=> {
+
                 let token= jwt.sign(
                     {user_id:data._id},
                     ".....",
