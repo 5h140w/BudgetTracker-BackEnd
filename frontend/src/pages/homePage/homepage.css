@@ -1,3 +1,22 @@
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}
+
 .home_container{
     background-color: blue;
     max-width: 100%;
@@ -20,7 +39,6 @@
     flex: 1;
     height: 100%;
     border-right: 1px solid grey;
-    overflow-y: scroll;
 }
 
 
@@ -40,3 +58,11 @@
     margin: 0 auto;
     border-radius: 50%;
 }
+
+ul{
+    margin: 0;
+    overflow-y: scroll;
+    height: 65vh;
+}
+
+

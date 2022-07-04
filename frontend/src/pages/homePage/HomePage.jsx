@@ -12,7 +12,33 @@ const HomePage = () =>{
                         </div>
                         <ul>
                             <li>Home</li>
-                            <li>Deposit</li>
+                            <li>Deposits</li>
+                            <li>Home</li>
+                            <li>Deposits</li>
+                            <li>Home</li>
+                            <li>Deposits</li>
+                            <li>Home</li>
+                            <li>Deposits</li>
+                            <li>Home</li>
+                            <li>Deposits</li>
+                            <li>Home</li>
+                            <li>Deposits</li>
+                            <li>Home</li>
+                            <li>Deposits</li>
+                            <li>Home</li>
+                            <li>Deposits</li>
+                            <li>Home</li>
+                            <li>Deposits</li>
+                            <li>Home</li>
+                            <li>Deposits</li>
+                            <li>Home</li>
+                            <li>Deposits</li>
+                            <li>Home</li>
+                            <li>Deposits</li>
+                            <li>Home</li>
+                            <li>Deposits</li>
+                            <li>Home</li>
+                            <li>Deposits</li>
                         </ul>
                     </div>
                     <div className="right_section">
