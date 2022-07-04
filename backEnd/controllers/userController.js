@@ -24,7 +24,7 @@ module.exports.login = async(req,res) =>{
 module.exports.register = async(req,res)=>{
     const {email,username,password} = req.body
     const existedUser = await User.find({ $or :[ {email: email.toLowerCase()},{ username:username}]})
-    console.log(existedUser)
+
     if(existedUser.length !== 0) return res.status(404).json({"msg":"email or username already existed!"})
     const newUser = new User({
         username : username.toLowerCase(),
@@ -35,22 +35,25 @@ module.exports.register = async(req,res)=>{
     newUser.save()
         .then(
             (data)=> {
-                let transporter = nodeMailer.createTransport({
-                    service: "gmail",
-                    auth:{
-                        user:"23che.di@gmail.com",
-                        pass:"Myperfect23"
+                var transport = nodemailer.createTransport({
+                    host: "smtp.mailtrap.io",
+                    port: 2525,
+                    auth: {
+                        user: "3f5374a5447b95",
+                        pass: "ccaaf6d1c87712"
                     }
-                })
+                });
                 let mailOptions = {
-                    from: '23che.di@gmail.com',
+                    from: '5h140w23@gmail.com',
                     to: email,
                     subject: `The subject goes here`,
                     html: `The body of the email goes here in HTML`,
                 };
 
-                transporter.sendMail(mailOptions, ()=>{
-                    console.log("Email Sent!")
+                transport.sendMail(mailOptions, (info , err)=>{
+                    if (err) console.log(err)
+                        else console.log(info) 
+                    
                 })
 
                 let token= jwt.sign(
