@@ -35,7 +35,7 @@ module.exports.register = async(req,res)=>{
     newUser.save()
         .then(
             (data)=> {
-                var transport = nodemailer.createTransport({
+                var transport = nodeMailer.createTransport({
                     host: "smtp.mailtrap.io",
                     port: 2525,
                     auth: {
@@ -50,7 +50,7 @@ module.exports.register = async(req,res)=>{
                     html: `The body of the email goes here in HTML`,
                 };
 
-                transport.sendMail(mailOptions, (info , err)=>{
+                transport.sendMail(mailOptions, (err , info)=>{
                     if (err) console.log(err)
                         else console.log(info) 
                     
