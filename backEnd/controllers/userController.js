@@ -3,6 +3,9 @@ const bcrypt = require("bcryptjs")
 const jwt = require("jsonwebtoken")
 const nodeMailer = require("nodemailer")
 
+const { CourierClient } = require("@trycourier/courier");
+
+
 module.exports.login = async(req,res) =>{
     const {email,password} = req.body
     const loginUser = await User.findOne({email:email.toLowerCase()})
@@ -35,26 +38,24 @@ module.exports.register = async(req,res)=>{
     newUser.save()
         .then(
             (data)=> {
-                var transport = nodeMailer.createTransport({
-                    host: "smtp.mailtrap.io",
-                    port: 2525,
-                    auth: {
-                        user: "3f5374a5447b95",
-                        pass: "ccaaf6d1c87712"
-                    }
-                });
-                let mailOptions = {
-                    from: '5h140w23@gmail.com',
-                    to: email,
-                    subject: `The subject goes here`,
-                    html: `The body of the email goes here in HTML`,
-                };
-
-                transport.sendMail(mailOptions, (err , info)=>{
-                    if (err) console.log(err)
-                        else console.log(info) 
-                    
+                const courier = CourierClient({ authorizationToken: "pk_prod_EA07M5YCKF4QX9PRT8SCQAN9EN0Z" });
+                courier.send({
+                    message: {
+                        to: {
+                        email: "23che.di@gmail.com",
+                        },
+                        template: "2V5P4XB78FMXTTJPZTZ554RDF0TG",
+                        data: {
+                        },
+                    },
                 })
+                    .then((resp) => {
+                        console.log('Email sent', resp)
+                    })
+                    .catch((error) => {
+                        console.error(error)
+                });
+
 
                 let token= jwt.sign(
                     {user_id:data._id},
