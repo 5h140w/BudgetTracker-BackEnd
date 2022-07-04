@@ -13,7 +13,6 @@ const HomePage = () =>{
                         <ul>
                             <li>Home</li>
                             <li>Deposit</li>
-                            <li></li>
                         </ul>
                     </div>
                     <div className="right_section">
