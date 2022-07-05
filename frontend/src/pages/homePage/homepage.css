@@ -61,8 +61,16 @@
 
 ul{
     margin: 0;
+    padding: 0;
     overflow-y: scroll;
     height: 65vh;
+    list-style: none;
+}
+
+ul>li{
+  padding: 20px;
+  display: flex;
+  justify-content: space-around;
 }
 
 
