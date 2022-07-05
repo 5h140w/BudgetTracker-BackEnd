@@ -1,6 +1,6 @@
 import './App.css';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome"
-import { faBaby, faCoins, faDashboard, faGears, faHome, faMoneyBill } from "@fortawesome/free-solid-svg-icons"
+import { faCoins, faDashboard, faGears, faHome, faMoneyBill } from "@fortawesome/free-solid-svg-icons"
 
 function App() {
   return (
