@@ -1,4 +1,6 @@
 import React from 'react'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import {faCoins, faHome, faInbox, faWallet} from "@fortawesome/free-solid-svg-icons"
 import "./homepage.css"
 
 const HomePage = () =>{
@@ -11,34 +13,22 @@ const HomePage = () =>{
                             <h3>Shady Belhadj</h3>
                         </div>
                         <ul>
-                            <li>Home</li>
-                            <li>Deposits</li>
-                            <li>Home</li>
-                            <li>Deposits</li>
-                            <li>Home</li>
-                            <li>Deposits</li>
-                            <li>Home</li>
-                            <li>Deposits</li>
-                            <li>Home</li>
-                            <li>Deposits</li>
-                            <li>Home</li>
-                            <li>Deposits</li>
-                            <li>Home</li>
-                            <li>Deposits</li>
-                            <li>Home</li>
-                            <li>Deposits</li>
-                            <li>Home</li>
-                            <li>Deposits</li>
-                            <li>Home</li>
-                            <li>Deposits</li>
-                            <li>Home</li>
-                            <li>Deposits</li>
-                            <li>Home</li>
-                            <li>Deposits</li>
-                            <li>Home</li>
-                            <li>Deposits</li>
-                            <li>Home</li>
-                            <li>Deposits</li>
+                            <li>
+                                <FontAwesomeIcon icon={faHome}/>
+                                <a>Home</a>
+                            </li>
+                            <li>
+                                <FontAwesomeIcon icon={faWallet}/>
+                                <a>Wallet</a>
+                            </li>
+                            <li>
+                                <FontAwesomeIcon icon={faCoins}/>
+                                <a>Home</a>
+                            </li>
+                            <li>
+                                <FontAwesomeIcon icon={faHome}/>
+                                <a>Home</a>
+                            </li>
                         </ul>
                     </div>
                     <div className="right_section">

@@ -69,8 +69,10 @@ ul{
 
 ul>li{
   padding: 20px;
-  display: flex;
-  justify-content: space-around;
+
 }
 
-
+li>svg{
+  margin-right: 20px;
+  color: blue;
+}
