@@ -44,9 +44,13 @@ function App() {
             </li>
           </ul>
         </div>
+        <div className='fixed'>
+          <p> Logout</p>
+        </div>
       </div>
       <div className="right">
-
+        <h1> Welcome Page</h1>
+        
       </div>
     </div>
   );
