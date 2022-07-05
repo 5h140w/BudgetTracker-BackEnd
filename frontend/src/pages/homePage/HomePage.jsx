@@ -1,6 +1,6 @@
 import React from 'react'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import {faCoins, faHome, faInbox, faWallet} from "@fortawesome/free-solid-svg-icons"
+import {faCoins, faHome, faInbox, faMoneyBills, faWallet} from "@fortawesome/free-solid-svg-icons"
 import "./homepage.css"
 
 const HomePage = () =>{
@@ -26,7 +26,23 @@ const HomePage = () =>{
                                 <a>Home</a>
                             </li>
                             <li>
-                                <FontAwesomeIcon icon={faHome}/>
+                                <FontAwesomeIcon icon={faMoneyBills}/>
+                                <a>Home</a>
+                            </li>
+                            <li>
+                                <FontAwesomeIcon icon={faMoneyBills}/>
+                                <a>Home</a>
+                            </li>
+                            <li>
+                                <FontAwesomeIcon icon={faMoneyBills}/>
+                                <a>Home</a>
+                            </li>
+                            <li>
+                                <FontAwesomeIcon icon={faMoneyBills}/>
+                                <a>Home</a>
+                            </li>
+                            <li>
+                                <FontAwesomeIcon icon={faMoneyBills}/>
                                 <a>Home</a>
                             </li>
                         </ul>

@@ -1,5 +1,6 @@
 ::-webkit-scrollbar {
   width: 10px;
+  display: none;
 }
 
 /* Track */
@@ -69,7 +70,8 @@ ul{
 
 ul>li{
   padding: 20px;
-
+  border: 1px solid grey;
+  cursor: pointer;
 }
 
 li>svg{
