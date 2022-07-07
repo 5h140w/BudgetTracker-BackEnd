@@ -1,5 +1,5 @@
 import React from 'react'
-import {Box, FormControl , TextField } from '@mui/material';
+import {Box, FormControl , TextField, Button} from '@mui/material';
 
 const LoginForm = () =>{
     const handle = (e) =>{
@@ -9,7 +9,7 @@ const LoginForm = () =>{
     return(
         <Box
             sx={{
-                p : 1
+                p : 3
             }}
         > 
             <Box
@@ -24,9 +24,27 @@ const LoginForm = () =>{
                     <TextField 
                         required
                             id="standard-required"
-                            label="Required"
+                            label="Email"
+                            margin="normal"
                             variant="standard"
-                        />
+                            sx={{m : 2}}
+                    />
+                    <TextField 
+                        required
+                            id="standard-required"
+                            label="Password"
+                            type="password"
+                            variant="standard"
+                            margin="normal" 
+                            sx={{m : 2}}
+                    />
+                    <Button 
+                        variant="contained"
+                        sx={{m : 2}}
+                    >
+                        Submit
+                    </Button>
+
                 </FormControl>
             </Box>
         </Box>
