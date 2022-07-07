@@ -1,10 +1,22 @@
 import React from 'react'
 import {Box, FormControl , TextField, Button} from '@mui/material';
+import axios from "axios"
+import { useState } from 'react';
 
 const LoginForm = () =>{
+    const [email, setemail] = useState("")
+    const [password, setpassword] = useState("")
     const handle = (e) =>{
         e.preventDefault()
-        console.log("ok")
+        axios.post(
+            'http://localhost:8080/auth/login' ,{
+                email, password
+            }
+        ).then(
+            (data)=>console.log(data)
+        ).catch(
+            (err)=>console.log(err)
+        )
     }
     return(
         <Box
@@ -21,22 +33,24 @@ const LoginForm = () =>{
                 <FormControl 
                     fullWidth={true} 
                 >
-                    <TextField 
+                    <TextField
                         required
-                            id="standard-required"
-                            label="Email"
-                            margin="normal"
-                            variant="standard"
-                            sx={{m : 2}}
+                        id="standard-required"
+                        label="Email"
+                        margin="normal"
+                        variant="standard"
+                        sx={{m : 2}}
+                        onChange={(e)=>setemail(e.target.value)}
                     />
                     <TextField 
                         required
-                            id="standard-required"
-                            label="Password"
-                            type="password"
-                            variant="standard"
-                            margin="normal" 
-                            sx={{m : 2}}
+                        id="standard-required"
+                        label="Password"
+                        type="password"
+                        variant="standard"
+                        margin="normal" 
+                        sx={{m : 2}}
+                        onChange={(e)=>setpassword(e.target.value)}
                     />
                     <Button
                         type='submit'
