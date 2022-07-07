@@ -38,7 +38,8 @@ const LoginForm = () =>{
                             margin="normal" 
                             sx={{m : 2}}
                     />
-                    <Button 
+                    <Button
+                        type='submit'
                         variant="contained"
                         sx={{m : 2}}
                     >

@@ -1,5 +1,5 @@
 import React from 'react'
-import {Box} from "@mui/material"
+import {Box, Typography} from "@mui/material"
 import "./loginpage.css"
 import LoginForm from '../../components/loginForm/LoginForm'
 
@@ -14,6 +14,7 @@ const LoginPage = () =>{
                     borderColor : 'grey.500'
                 }}
             >
+                <Typography variant='h3' color="black" align="center" sx={{mt: 4}}> Login</Typography> 
                 <LoginForm/>
             </Box>
         </div>
