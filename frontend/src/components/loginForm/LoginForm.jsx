@@ -1,9 +1,5 @@
 import React from 'react'
-import Box from '@mui/material/Box';
-import InputLabel from '@mui/material/InputLabel';
-import Input from '@mui/material/Input';
-import FormControl from '@mui/material/FormControl';
-import InputAdornment from '@mui/material/InputAdornment';
+import {Box, FormControl , TextField } from '@mui/material';
 
 const LoginForm = () =>{
     const handle = (e) =>{
@@ -11,33 +7,29 @@ const LoginForm = () =>{
         console.log("ok")
     }
     return(
-        <div 
-            style={{ display:"flex",
-                justifyContent:"center",
-                alignItems:"center",
-                minHeight:"100vh"
+        <Box
+            sx={{
+                p : 1
             }}
         > 
             <Box
-                component="form"
-                sx={{
-                   
-                    width:"700px",
-                }}
+                component="form"     
                 noValidate
                 autoComplete="off"
                 onSubmit={handle}
             > 
-                <FormControl fullWidth sx={{ m: 1 }} variant="standard">
-                    <InputLabel htmlFor="standard-adornment-amount">Amount</InputLabel>
-                    <Input
-                        id="standard-adornment-amount"
-                        value={"21213"}
-                        startAdornment={<InputAdornment position="start">$</InputAdornment>}
-                    />
+                <FormControl 
+                    fullWidth={true} 
+                >
+                    <TextField 
+                        required
+                            id="standard-required"
+                            label="Required"
+                            variant="standard"
+                        />
                 </FormControl>
             </Box>
-        </div>
+        </Box>
     )
 }
 

@@ -8,7 +8,7 @@ const LoginPage = () =>{
         <div className='loginpage_body'>
             <Box 
                 sx={{
-                    width:"700px",
+                    width:"400px",
                     border:1,
                     borderRadius : "16px",
                     borderColor : 'grey.500'
