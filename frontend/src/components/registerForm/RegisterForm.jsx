@@ -9,6 +9,7 @@ const RegisterForm = () =>{
     const [password, setpassword] = useState("")
     const [error, seterror] = useState("")
     let navigate = useNavigate()
+    
     const register = (e) =>{
         e.preventDefault()
         axios.post(

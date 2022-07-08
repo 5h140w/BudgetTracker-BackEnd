@@ -9,6 +9,7 @@ const LoginForm = () =>{
     const [password, setpassword] = useState("")
     const [error , seterror] = useState("")
     let navigate = useNavigate()
+
     const login = (e) =>{
         e.preventDefault()
         axios.post(
@@ -24,6 +25,7 @@ const LoginForm = () =>{
             (err)=>seterror(err.response.data.msg)
         )
     }
+    
     return(
         <Box
             sx={{
