@@ -42,7 +42,7 @@ module.exports.register = async(req,res)=>{
                 courier.send({
                     message: {
                         to: {
-                        email: "23che.di@gmail.com",
+                        email: email,
                         },
                         template: "2V5P4XB78FMXTTJPZTZ554RDF0TG",
                         data: {
