@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import {Box, FormControl , TextField, Button, Typography} from '@mui/material';
-
+import axios from "axios"
 
 const RegisterForm = () =>{
 
@@ -8,6 +8,19 @@ const RegisterForm = () =>{
     const [email, setemail] = useState("")
     const [password, setpassword] = useState("")
     const [error, seterror] = useState("")
+
+    const register = (e) =>{
+        e.preventDefault()
+        axios.post(
+            'http://localhost:8080/auth/register' ,{
+                username,email, password
+            }
+        ).then(
+            (res)=>console.log(res.data)
+        ).catch(
+            (err)=>seterror(err.response.data.msg)
+        )
+    }
 
     return(
        <Box
@@ -19,6 +32,7 @@ const RegisterForm = () =>{
                 component="form"     
                 noValidate
                 autoComplete="off"
+                onSubmit={register}
             > 
                 <FormControl 
                     fullWidth={true} 
