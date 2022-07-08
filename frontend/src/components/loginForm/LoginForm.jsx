@@ -2,12 +2,13 @@ import React from 'react'
 import {Box, FormControl , TextField, Button, Typography} from '@mui/material';
 import axios from "axios"
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const LoginForm = () =>{
     const [email, setemail] = useState("")
     const [password, setpassword] = useState("")
     const [error , seterror] = useState("")
-
+    let navigate = useNavigate()
     const login = (e) =>{
         e.preventDefault()
         axios.post(
@@ -15,7 +16,10 @@ const LoginForm = () =>{
                 email, password
             }
         ).then(
-            (res)=>console.log(res.data)
+            (res)=>{
+                localStorage.setItem("token",res.data.token)
+                navigate("/home")
+            }
         ).catch(
             (err)=>seterror(err.response.data.msg)
         )

@@ -9,7 +9,7 @@ const RegisterForm = () =>{
     const [email, setemail] = useState("")
     const [password, setpassword] = useState("")
     const [error, seterror] = useState("")
-    const navigate = useNavigate()
+    let navigate = useNavigate()
 
     const register = (e) =>{
         e.preventDefault()
