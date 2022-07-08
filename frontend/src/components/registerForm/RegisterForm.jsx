@@ -4,13 +4,11 @@ import axios from "axios"
 import { useNavigate } from 'react-router-dom';
 
 const RegisterForm = () =>{
-
     const [username, setusername] = useState("")
     const [email, setemail] = useState("")
     const [password, setpassword] = useState("")
     const [error, seterror] = useState("")
     let navigate = useNavigate()
-
     const register = (e) =>{
         e.preventDefault()
         axios.post(
