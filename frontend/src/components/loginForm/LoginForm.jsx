@@ -8,7 +8,7 @@ const LoginForm = () =>{
     const [password, setpassword] = useState("")
     const [error , seterror] = useState("")
 
-    const handle = (e) =>{
+    const login = (e) =>{
         e.preventDefault()
         axios.post(
             'http://localhost:8080/auth/login' ,{
@@ -30,7 +30,7 @@ const LoginForm = () =>{
                 component="form"     
                 noValidate
                 autoComplete="off"
-                onSubmit={handle}
+                onSubmit={login}
             > 
                 <FormControl 
                     fullWidth={true} 
