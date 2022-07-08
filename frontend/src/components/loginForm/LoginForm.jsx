@@ -13,7 +13,7 @@ const LoginForm = () =>{
     const login = (e) =>{
         e.preventDefault()
         axios.post(
-            'http://localhost:8080/auth/login' ,{
+            'http://localhost:8080/auth/login',{
                 email, password
             }
         ).then(
@@ -25,7 +25,7 @@ const LoginForm = () =>{
             (err)=>seterror(err.response.data.msg)
         )
     }
-    
+
     return(
         <Box
             sx={{
