@@ -1,5 +1,5 @@
 import React from 'react'
-import {Box, FormControl , TextField, Button} from '@mui/material';
+import {Box, FormControl , TextField, Button, Typography} from '@mui/material';
 import axios from "axios"
 import { useState } from 'react';
 
@@ -62,7 +62,9 @@ const LoginForm = () =>{
                     >
                         Submit
                     </Button>
-
+                    <Typography variant="p" align='center' mt={2} sx={{color:"red", fontSize:15 }}>
+                        {error}
+                    </Typography>
                 </FormControl>
             </Box>
         </Box>
