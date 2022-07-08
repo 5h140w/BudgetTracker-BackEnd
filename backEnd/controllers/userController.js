@@ -9,7 +9,7 @@ const { CourierClient } = require("@trycourier/courier");
 module.exports.login = async(req,res) =>{
     const {email,password} = req.body
     const loginUser = await User.findOne({email:email.toLowerCase()})
-    if(!loginUser) return res.status(404).json({"msg":"not account"})
+    if(!loginUser) return res.status(404).json({"msg":"Not Account"})
     const comparedPwd = bcrypt.compareSync(password, loginUser.password)
     if(comparedPwd){
         let token = jwt.sign(
@@ -19,7 +19,7 @@ module.exports.login = async(req,res) =>{
         )
         return res.status(200).json({"token":token})
     }
-    return res.status(404).json({"msg":"Invalid credentials!"})
+    return res.status(404).json({"msg":"Invalid Credentials!"})
 }
 
 
@@ -28,7 +28,7 @@ module.exports.register = async(req,res)=>{
     const {email,username,password} = req.body
     const existedUser = await User.find({ $or :[ {email: email.toLowerCase()},{ username:username}]})
 
-    if(existedUser.length !== 0) return res.status(404).json({"msg":"email or username already existed!"})
+    if(existedUser.length !== 0) return res.status(404).json({"msg":"Email or username already existed!"})
     const newUser = new User({
         username : username.toLowerCase(),
         email : email.toLowerCase(),
