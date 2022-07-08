@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import {Box, FormControl , TextField, Button, Typography} from '@mui/material';
 import axios from "axios"
+import { useNavigate } from 'react-router-dom';
 
 const RegisterForm = () =>{
 
@@ -8,6 +9,7 @@ const RegisterForm = () =>{
     const [email, setemail] = useState("")
     const [password, setpassword] = useState("")
     const [error, seterror] = useState("")
+    const navigate = useNavigate()
 
     const register = (e) =>{
         e.preventDefault()
@@ -16,7 +18,10 @@ const RegisterForm = () =>{
                 username,email, password
             }
         ).then(
-            (res)=>console.log(res.data)
+            (res)=>{
+                localStorage.setItem("token",res.data.token)
+                navigate("/home")
+            }
         ).catch(
             (err)=>seterror(err.response.data.msg)
         )
