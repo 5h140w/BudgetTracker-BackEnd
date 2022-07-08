@@ -15,7 +15,7 @@ const LoginForm = () =>{
                 email, password
             }
         ).then(
-            (data)=>console.log(data)
+            (res)=>console.log(res.data)
         ).catch(
             (err)=>seterror(err.response.data.msg)
         )
