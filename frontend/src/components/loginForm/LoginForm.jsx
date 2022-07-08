@@ -6,6 +6,8 @@ import { useState } from 'react';
 const LoginForm = () =>{
     const [email, setemail] = useState("")
     const [password, setpassword] = useState("")
+    const [error , seterror] = useState("")
+
     const handle = (e) =>{
         e.preventDefault()
         axios.post(
@@ -15,7 +17,7 @@ const LoginForm = () =>{
         ).then(
             (data)=>console.log(data)
         ).catch(
-            (err)=>console.log(err)
+            (err)=>seterror(err.response.data.msg)
         )
     }
     return(
@@ -37,6 +39,7 @@ const LoginForm = () =>{
                         required
                         id="standard-required"
                         label="Email"
+                        type="email"
                         margin="normal"
                         variant="standard"
                         sx={{m : 2}}
