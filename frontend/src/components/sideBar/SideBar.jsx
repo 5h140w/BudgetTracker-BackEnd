@@ -14,7 +14,7 @@ const SideBar = () =>{
                 <li>
                     <a href="/login">
                         <FontAwesomeIcon icon={faHome}/>
-                        Home
+                        <span>Dashboard</span>
                     </a>
                 </li>
                 <li>
