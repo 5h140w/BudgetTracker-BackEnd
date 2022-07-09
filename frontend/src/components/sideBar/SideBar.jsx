@@ -1,8 +1,9 @@
 import React from 'react'
+import "./sidebar.css"
 
 const SideBar = () =>{
     return(
-        <section>
+        <section className='sidebar_section'>
             
         </section>
     )
