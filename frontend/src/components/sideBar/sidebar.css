@@ -1,7 +1,12 @@
 .sidebar_section{
     width: 300px;
-    background-color: aqua;
+    border-right: 0.5px solid grey;
     position: fixed;
     top:0;
     bottom: 0;
+}
+
+.sidebar_section .gn_section{
+    padding: 30px;
+    border-bottom: 0.5px solid grey;
 }
