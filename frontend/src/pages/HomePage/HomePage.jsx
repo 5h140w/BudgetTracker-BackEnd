@@ -87,8 +87,8 @@ const HomePage = () =>{
                         </CardContent>
                     </Card>
                 </Box>
-                <div>
-                    <Typography sx={{ fontWeight:"600", fontSize: 14, p:2 }}color="text.secondary">
+                <Box component="div" sx={{ p :2}}>
+                    <Typography sx={{ fontWeight:"600", fontSize: 14, mb:2 }}color="text.secondary">
                         Last transactions
                     </Typography>
                     <div style={{ height: 400 }}>
@@ -100,7 +100,7 @@ const HomePage = () =>{
                             
                         />
                     </div>
-                </div>
+                </Box>
             </div>
         </>
     )
