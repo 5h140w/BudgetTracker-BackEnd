@@ -1,9 +1,8 @@
 .sidebar_section{
     width: 300px;
     border-right: 0.5px solid grey;
-    position: fixed;
-    top:0;
-    bottom: 0;
+    position: relative;
+    height: 100vh;
 }
 
 .sidebar_section .gn_section{
@@ -42,4 +41,26 @@
 
 .menu_section>li a svg{
     margin-right: 30px;
+}
+
+
+.sidebar_logout{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+.sidebar_logout>button{
+    display: block;
+    width: 100%;
+    padding: 15px 20px;
+    background-color: transparent;
+    border: none;
+    border-top: 0.5px solid grey;
+    cursor: pointer;;
+}
+
+.sidebar_logout>button:hover{
+    background-color: grey;
+    color: white;
 }

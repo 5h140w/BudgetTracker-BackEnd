@@ -42,8 +42,8 @@ const SideBar = () =>{
                     </a>
                 </li>
             </ul>
-            <div className='logout_section'>
-                <button></button>
+            <div className='sidebar_logout'>
+                <button> logout</button>
             </div>
         </div>
     )
