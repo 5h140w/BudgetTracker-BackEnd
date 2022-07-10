@@ -1,41 +1,18 @@
 import React from 'react'
 import "./homepage.css"
 import SideBar from "../../components/sideBar/SideBar"
-import { Box, Card, CardContent,Typography } from '@mui/material'
-import { DataGrid } from '@mui/x-data-grid';
+import { Box, Card, CardContent,Typography, Table, TableBody ,TableCell ,TableContainer ,TableHead ,TableRow ,Paper } from '@mui/material'
 
-
-const columns = [
-  { field: 'id', headerName: 'ID', width: 200 },
-  { field: 'firstName', headerName: 'Name', width: 200 },
-  { field: 'lastName', headerName: 'Last name',width: 200},
-  {
-    field: 'age',
-    headerName: 'Amount',
-    type: 'number',
-    width: 200
-  },
-  {
-    field: 'fullName',
-    headerName: 'Nature',
-    description: 'This column has a value getter and is not sortable.',
-    sortable: false,
-    width: 385,
-    valueGetter: (params) =>
-      `${params.row.firstName || ''} ${params.row.lastName || ''}`,
-  },
-];
+function createData(name, calories, fat, carbs, protein) {
+  return { name, calories, fat, carbs, protein };
+}
 
 const rows = [
-  { id: 1, lastName: 'Snow', firstName: 'Jon', age: 35 },
-  { id: 2, lastName: 'Lannister', firstName: 'Cersei', age: 42 },
-  { id: 3, lastName: 'Lannister', firstName: 'Jaime', age: 45 },
-  { id: 4, lastName: 'Stark', firstName: 'Arya', age: 16 },
-  { id: 5, lastName: 'Targaryen', firstName: 'Daenerys', age: null },
-  { id: 6, lastName: 'Melisandre', firstName: null, age: 150 },
-  { id: 7, lastName: 'Clifford', firstName: 'Ferrara', age: 44 },
-  { id: 8, lastName: 'Frances', firstName: 'Rossini', age: 36 },
-  { id: 9, lastName: 'Roxie', firstName: 'Harvey', age: 65 },
+  createData('Frozen yoghurt', 159, 6.0, 24, 4.0),
+  createData('Ice cream sandwich', 237, 9.0, 37, 4.3),
+  createData('Eclair', 262, 16.0, 24, 6.0),
+  createData('Cupcake', 305, 3.7, 67, 4.3),
+  createData('Gingerbread', 356, 16.0, 49, 3.9),
 ];
 
 
@@ -91,15 +68,33 @@ const HomePage = () =>{
                     <Typography sx={{ fontWeight:"600", fontSize: 14, mb:2 }}color="text.secondary">
                         Last transactions
                     </Typography>
-                    <div style={{ height: 400 }}>
-                        <DataGrid
-                            rows={rows}
-                            columns={columns}
-                            pageSize={5}
-                            rowsPerPageOptions={[5]}
-                            
-                        />
-                    </div>
+                    <TableContainer component={Paper}>
+                        <Table sx={{ minWidth: 650 }} aria-label="simple table">
+                            <TableHead>
+                            <TableRow>
+                                <TableCell> ID </TableCell>
+                                <TableCell align="right">Name</TableCell>
+                                <TableCell align="right">Amount</TableCell>
+                                <TableCell align="right">Type/ Nature</TableCell>
+                            </TableRow>
+                            </TableHead>
+                            <TableBody>
+                            {rows.map((row) => (
+                                <TableRow
+                                key={row.name}
+                                sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+                                >
+                                <TableCell component="th" scope="row">
+                                    {row.name}
+                                </TableCell>
+                                <TableCell align="right">{row.fat}</TableCell>
+                                <TableCell align="right">{row.carbs}</TableCell>
+                                <TableCell align="right">{row.protein}</TableCell>
+                                </TableRow>
+                            ))}
+                            </TableBody>
+                        </Table>
+                    </TableContainer>
                 </Box>
             </div>
         </>
