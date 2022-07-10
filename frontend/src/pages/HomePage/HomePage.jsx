@@ -6,7 +6,9 @@ const HomePage = () =>{
     return(
         <>
             <SideBar/>
-            dfklshjmfjsmf
+            <div className='main'>
+                <p>klqdhfsjfs</p>
+            </div>
         </>
     )
 }
