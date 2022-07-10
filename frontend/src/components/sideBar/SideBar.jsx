@@ -1,6 +1,6 @@
 import React from 'react'
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome"
-import {faHome, faMoneyBill1Wave,faMoneyBillTransfer} from "@fortawesome/free-solid-svg-icons"
+import {faGears, faHome, faMoneyBill1Wave,faMoneyBillTransfer, faTablets} from "@fortawesome/free-solid-svg-icons"
 import "./sidebar.css"
 
 const SideBar = () =>{
@@ -31,11 +31,20 @@ const SideBar = () =>{
                 </li>
                 <li>
                     <a href="/login">
-                        <FontAwesomeIcon icon={faMoneyBillTransfer}/>
+                        <FontAwesomeIcon icon={faTablets}/>
                         <span>Dashboard</span>
                     </a>
                 </li>
+                <li>
+                    <a href="/login">
+                        <FontAwesomeIcon icon={faGears}/>
+                        <span>Settings</span>
+                    </a>
+                </li>
             </ul>
+            <div className='logout_section'>
+                <button></button>
+            </div>
         </div>
     )
 }
