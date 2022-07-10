@@ -6,21 +6,21 @@ import { DataGrid } from '@mui/x-data-grid';
 
 
 const columns = [
-  { field: 'id', headerName: 'ID', width: 70 },
-  { field: 'firstName', headerName: 'First name', width: 130 },
-  { field: 'lastName', headerName: 'Last name', width: 130 },
+  { field: 'id', headerName: 'ID', width: 200 },
+  { field: 'firstName', headerName: 'Name', width: 200 },
+  { field: 'lastName', headerName: 'Last name',width: 200},
   {
     field: 'age',
-    headerName: 'Age',
+    headerName: 'Amount',
     type: 'number',
-    width: 90,
+    width: 200
   },
   {
     field: 'fullName',
-    headerName: 'Full name',
+    headerName: 'Nature',
     description: 'This column has a value getter and is not sortable.',
     sortable: false,
-    width: 160,
+    width: 385,
     valueGetter: (params) =>
       `${params.row.firstName || ''} ${params.row.lastName || ''}`,
   },
@@ -88,13 +88,16 @@ const HomePage = () =>{
                     </Card>
                 </Box>
                 <div>
-                    <div style={{ height: 400, width: '100%' }}>
+                    <Typography sx={{ fontWeight:"600", fontSize: 14, p:2 }}color="text.secondary">
+                        Last transactions
+                    </Typography>
+                    <div style={{ height: 400 }}>
                         <DataGrid
                             rows={rows}
                             columns={columns}
                             pageSize={5}
                             rowsPerPageOptions={[5]}
-                            checkboxSelection
+                            
                         />
                     </div>
                 </div>
