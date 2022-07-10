@@ -25,6 +25,9 @@ const HomePage = () =>{
                             <Typography sx={{ fontWeight:"600", fontSize: 14 }}color="text.secondary">
                                 Total Expenses
                             </Typography>
+                            <Typography sx={{ my:"20px",fontSize: 12, float:"right" }}color="text.secondary">
+                                ... TND 
+                            </Typography>
                         </CardContent>
                     </Card>
                     <Card sx={{width:"400px", m:2}}>
@@ -32,12 +35,18 @@ const HomePage = () =>{
                             <Typography sx={{ fontWeight:"600", fontSize: 14 }}color="text.secondary">
                                 Total Deposits
                             </Typography>
+                            <Typography sx={{ my:"20px",fontSize: 12, float:"right" }}color="text.secondary">
+                                ... TND
+                            </Typography>
                         </CardContent>
                     </Card>
                     <Card sx={{width:"400px", m:2}}>
                         <CardContent>
                             <Typography sx={{ fontWeight:"600", fontSize: 14 }}color="text.secondary">
                                 Balance
+                            </Typography>
+                            <Typography sx={{ my:"20px",fontSize: 12, float:"right" }}color="text.secondary">
+                                ... TND
                             </Typography>
                         </CardContent>
                     </Card>
