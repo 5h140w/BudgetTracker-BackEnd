@@ -8,9 +8,7 @@ const HomePage = () =>{
     return(
         <>
             <SideBar/>
-            <div className='main'>
-                <OverViewMain/>
-            </div>
+            <OverViewMain/>
         </>
     )
 }

@@ -15,7 +15,7 @@ const rows = [
 
 const OverViewMain = () =>{
     return(
-        <>
+        <div className='main'>
             <h1>Welcome User</h1>
                 <Box
                     sx={{
@@ -84,14 +84,14 @@ const OverViewMain = () =>{
                                 </TableCell>
                                 <TableCell align="right">{row.fat}</TableCell>
                                 <TableCell align="right">{row.carbs}</TableCell>
-                                <TableCell align="right">{row.protein}</TableCell>
+                                <TableCell align="right">Expense</TableCell>
                                 </TableRow>
                             ))}
                             </TableBody>
                         </Table>
                     </TableContainer>
                 </Box>
-        </>
+        </div>
     )
 }
 
