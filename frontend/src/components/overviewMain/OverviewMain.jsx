@@ -1,5 +1,6 @@
-import React from 'react'
+import React,{useState,useEffect} from 'react'
 import { Box, Card, CardContent,Typography, Table, TableBody ,TableCell ,TableContainer ,TableHead ,TableRow ,Paper } from '@mui/material'
+import axios from "axios"
 
 function createData(name, calories, fat, carbs, protein) {
   return { name, calories, fat, carbs, protein };
@@ -14,6 +15,18 @@ const rows = [
 ];
 
 const OverViewMain = () =>{
+    const [data, setData] = useState([])
+
+    useEffect (()=>{
+        axios.get(
+            "http://localhost:8080/expense/all"
+        ).then(
+            (data)=> setData(data.data)
+        ).catch(
+            (err)=> console.log(err)
+        )
+    },[])
+    
     return(
         <div className='main'>
             <h1>Welcome User</h1>
@@ -74,16 +87,16 @@ const OverViewMain = () =>{
                             </TableRow>
                             </TableHead>
                             <TableBody>
-                            {rows.map((row) => (
+                            {data.map((row) => (
                                 <TableRow
-                                key={row.name}
+                                key={row._id}
                                 sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                                 >
                                 <TableCell component="th" scope="row">
-                                    {row.name}
+                                    {row._id}
                                 </TableCell>
-                                <TableCell align="right">{row.fat}</TableCell>
-                                <TableCell align="right">{row.carbs}</TableCell>
+                                <TableCell align="right">{row.name}</TableCell>
+                                <TableCell align="right">{row.amount} TND</TableCell>
                                 <TableCell align="right">Expense</TableCell>
                                 </TableRow>
                             ))}
