@@ -1,7 +1,7 @@
 import React from 'react'
 import "./homepage.css"
 import SideBar from "../../components/sideBar/SideBar"
-import { Box, Card, CardContent,Typography, Table, TableBody ,TableCell ,TableContainer ,TableHead ,TableRow ,Paper } from '@mui/material'
+import OverViewMain from '../../components/overviewMain/OverviewMain';
 
 function createData(name, calories, fat, carbs, protein) {
   return { name, calories, fat, carbs, protein };
@@ -21,81 +21,7 @@ const HomePage = () =>{
         <>
             <SideBar/>
             <div className='main'>
-                <h1>Welcome User</h1>
-                <Box
-                    sx={{
-                        display: 'flex',
-                        flexWrap: 'wrap',
-                        justifyContent:"center",
-                        p: 1,
-                        m: 1,
-                        bgcolor: 'background.paper',
-                        borderRadius: 1,
-                    }}
-                >
-                    <Card sx={{width:"400px", m:2}}>
-                        <CardContent>
-                            <Typography sx={{ fontWeight:"600", fontSize: 14 }}color="text.secondary">
-                                Total Expenses
-                            </Typography>
-                            <Typography sx={{ my:"20px",fontSize: 12, float:"right" }}color="text.secondary">
-                                ... TND 
-                            </Typography>
-                        </CardContent>
-                    </Card>
-                    <Card sx={{width:"400px", m:2}}>
-                        <CardContent>
-                            <Typography sx={{ fontWeight:"600", fontSize: 14 }}color="text.secondary">
-                                Total Deposits
-                            </Typography>
-                            <Typography sx={{ my:"20px",fontSize: 12, float:"right" }}color="text.secondary">
-                                ... TND
-                            </Typography>
-                        </CardContent>
-                    </Card>
-                    <Card sx={{width:"400px", m:2}}>
-                        <CardContent>
-                            <Typography sx={{ fontWeight:"600", fontSize: 14 }}color="text.secondary">
-                                Balance
-                            </Typography>
-                            <Typography sx={{ my:"20px",fontSize: 12, float:"right" }}color="text.secondary">
-                                ... TND
-                            </Typography>
-                        </CardContent>
-                    </Card>
-                </Box>
-                <Box component="div" sx={{ p :2}}>
-                    <Typography sx={{ fontWeight:"600", fontSize: 14, mb:2 }}color="text.secondary">
-                        Last transactions
-                    </Typography>
-                    <TableContainer component={Paper}>
-                        <Table sx={{ minWidth: 650 }} aria-label="simple table">
-                            <TableHead>
-                            <TableRow>
-                                <TableCell> ID </TableCell>
-                                <TableCell align="right">Name</TableCell>
-                                <TableCell align="right">Amount</TableCell>
-                                <TableCell align="right">Type/ Nature</TableCell>
-                            </TableRow>
-                            </TableHead>
-                            <TableBody>
-                            {rows.map((row) => (
-                                <TableRow
-                                key={row.name}
-                                sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-                                >
-                                <TableCell component="th" scope="row">
-                                    {row.name}
-                                </TableCell>
-                                <TableCell align="right">{row.fat}</TableCell>
-                                <TableCell align="right">{row.carbs}</TableCell>
-                                <TableCell align="right">{row.protein}</TableCell>
-                                </TableRow>
-                            ))}
-                            </TableBody>
-                        </Table>
-                    </TableContainer>
-                </Box>
+                <OverViewMain/>
             </div>
         </>
     )
