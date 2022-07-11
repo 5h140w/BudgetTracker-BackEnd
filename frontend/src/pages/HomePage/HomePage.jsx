@@ -4,7 +4,7 @@ import SideBar from "../../components/sideBar/SideBar"
 import OverViewMain from '../../components/overviewMain/OverviewMain';
 
 
-const HomePage = () =>{
+const OverViewPage = () =>{
     return(
         <>
             <SideBar/>
@@ -13,4 +13,4 @@ const HomePage = () =>{
     )
 }
 
-export default HomePage
+export default OverViewPage
