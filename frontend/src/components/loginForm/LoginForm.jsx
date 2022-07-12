@@ -19,7 +19,7 @@ const LoginForm = () =>{
         ).then(
             (res)=>{
                 localStorage.setItem("token",res.data.token)
-                navigate("/home")
+                navigate("/overview")
             }
         ).catch(
             (err)=>seterror(err.response.data.msg)
