@@ -29,7 +29,7 @@ const OverViewMain = () =>{
                         borderRadius: 1,
                     }}
                 >
-                    <Card sx={{width:"500px", m:2}}>
+                    <Card sx={{width:"500px", m:2, p:2}}>
                         <CardContent>
                             <Typography sx={{ fontWeight:"600", fontSize: 14 }}color="text.secondary">
                                 Total Expenses
@@ -39,7 +39,7 @@ const OverViewMain = () =>{
                             </Typography>
                         </CardContent>
                     </Card>
-                    <Card sx={{width:"500px", m:2}}>
+                    <Card sx={{width:"500px", m:2, p:2}}>
                         <CardContent>
                             <Typography sx={{ fontWeight:"600", fontSize: 14 }}color="text.secondary">
                                 Total Deposits
@@ -49,7 +49,7 @@ const OverViewMain = () =>{
                             </Typography>
                         </CardContent>
                     </Card>
-                    <Card sx={{width:"500px", m:2}}>
+                    <Card sx={{width:"500px", m:2,p:2}}>
                         <CardContent>
                             <Typography sx={{ fontWeight:"600", fontSize: 14 }}color="text.secondary">
                                 Balance
