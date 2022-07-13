@@ -83,21 +83,21 @@ const ExpensesMain = () =>{
                                 <TableCell> ID </TableCell>
                                 <TableCell align="right">Name</TableCell>
                                 <TableCell align="right">Amount</TableCell>
-                                <TableCell align="right">Type/ Nature</TableCell>
+                                <TableCell align="right">Description</TableCell>
                             </TableRow>
                             </TableHead>
                             <TableBody>
-                            {data.map((row) => (
+                            {data.map((row,index) => (
                                 <TableRow
                                 key={row._id}
                                 sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                                 >
                                 <TableCell component="th" scope="row">
-                                    {row._id}
+                                    {index}
                                 </TableCell>
                                 <TableCell align="right">{row.name}</TableCell>
                                 <TableCell align="right">{row.amount} TND</TableCell>
-                                <TableCell align="right">Expense</TableCell>
+                                <TableCell align="right">{row.description}</TableCell>
                                 </TableRow>
                             ))}
                             </TableBody>
