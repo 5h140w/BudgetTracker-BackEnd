@@ -1,19 +1,37 @@
-import React from 'react'
+import React,{useEffect , useState} from 'react'
 import { Box, Card, CardContent,Typography, Table, TableBody ,TableCell ,TableContainer ,TableHead ,TableRow ,Paper } from '@mui/material'
+import axios from "axios"
+import jwt_decode from "jwt-decode"
 
 const ExpensesMain = () =>{
-    const data =[
-        {
-            _id:"54213",
-            name:"dlkjsdf",
-            amount:1,
+    const [data,setData] = useState([])
+    const user_id = jwt_decode(localStorage.getItem("token")).user_id
 
-        }
-    ]
+    useEffect(
+        ()=>{
+            axios.get("http://localhost:8080/expense/user/"+user_id)
+                .then(
+                    (data)=>{
+                        console.log(data)
+                        setData(data.data.data)
+                    }
+                ).catch(
+                    (err)=>{
+                        console.log(err)
+                    }
+                )
+        },[user_id]
+    )
+
     return(
         <>
             <div className='main'>
-                <h1>Expenses</h1>
+                <Typography component={"h1"} sx={{ fontWeight :"1000", fontSize:32}}>
+                Overview Page
+                </Typography>
+                <Typography component={"p"} sx={{fontWeight:"600", fontSize:12, float:"right",p:1}}>
+                    XX days
+                </Typography>
                 <Box
                     sx={{
                         display: 'flex',
