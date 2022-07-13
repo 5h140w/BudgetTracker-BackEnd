@@ -25,7 +25,7 @@ const ExpensesMain = () =>{
                         borderRadius: 1,
                     }}
                 >
-                    <Card sx={{width:"500px", m:2}}>
+                    <Card sx={{width:"500px", m:2, p:2}}>
                         <CardContent>
                             <Typography sx={{ fontWeight:"600", fontSize: 14 }}color="text.secondary">
                                 Total Expenses
@@ -35,10 +35,10 @@ const ExpensesMain = () =>{
                             </Typography>
                         </CardContent>
                     </Card>
-                    <Card sx={{width:"500px", m:2}}>
+                    <Card sx={{width:"500px", m:2, p:2}}>
                         <CardContent>
                             <Typography sx={{ fontWeight:"600", fontSize: 14 }}color="text.secondary">
-                                Total Expenses
+                                Total Expenses Per Month
                             </Typography>
                             <Typography sx={{ my:"20px",fontSize: 12, float:"right" }}color="text.secondary">
                                 ... TND 
