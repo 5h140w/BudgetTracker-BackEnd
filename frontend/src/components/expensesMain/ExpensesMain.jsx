@@ -1,5 +1,5 @@
 import React,{useEffect , useState} from 'react'
-import { Box, Card, CardContent,Typography, Table, TableBody ,TableCell ,TableContainer ,TableHead ,TableRow ,Paper } from '@mui/material'
+import { Box, Card, CardContent,Typography, Table, TableBody ,TableCell ,TableContainer ,TableHead ,TableRow ,Paper, Button } from '@mui/material'
 import axios from "axios"
 import jwt_decode from "jwt-decode"
 
@@ -38,7 +38,8 @@ const ExpensesMain = () =>{
                     <Typography component={"p"} sx={{fontWeight:"600", fontSize:12,p:1, display:"block",float:"right"}}>
                         XX days
                     </Typography>
-                </Box>
+                    <Button size="small" variant="contained">Add expense </Button>
+                </Box> 
                
                 <Box
                     sx={{
