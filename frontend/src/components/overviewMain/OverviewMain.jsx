@@ -1,15 +1,17 @@
 import React,{useState,useEffect} from 'react'
 import { Box, Card, CardContent,Typography, Table, TableBody ,TableCell ,TableContainer ,TableHead ,TableRow ,Paper } from '@mui/material'
 import axios from "axios"
+import jwt_decode from "jwt-decode"
 
 const OverViewMain = () =>{
     const [data, setData] = useState([])
+    const user_id = jwt_decode(localStorage.getItem("token")).user_id
 
     useEffect (()=>{
         axios.get(
-            "http://localhost:8080/expense/all"
+            "http://localhost:8080/expense/user/"+user_id
         ).then(
-            (data)=> setData(data.data)
+            (data)=> setData(data.data.data)
         ).catch(
             (err)=> console.log(err)
         )
