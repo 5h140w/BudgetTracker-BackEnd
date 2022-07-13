@@ -1,7 +1,7 @@
 import './App.css';
 import LoginPage from './pages/LoginPage/LoginPage';
 import RegisterPage from './pages/RegisterPage/RegisterPage';
-import {BrowserRouter , Routes , Route , Navigate} from "react-router-dom"
+import {BrowserRouter , Routes , Route } from "react-router-dom"
 import OverViewPage from './pages/HomePage/OverViewPage';
 import ExpensesPage from './pages/ExpensesPage/ExpensesPage';
 
