@@ -19,14 +19,19 @@ const OverViewMain = () =>{
     
     return(
         <div className='main'>
-            <h1>Welcome User</h1>
+            <Typography component={"h1"} sx={{ fontWeight :"1000", fontSize:32}}>
+                Overview Page
+            </Typography>
+            <Typography component={"p"} sx={{fontWeight:"600", fontSize:12, float:"right",p:1}}>
+                XX days
+            </Typography>
                 <Box
                     sx={{
                         display: 'flex',
                         flexWrap: 'wrap',
                         justifyContent:"center",
                         p: 1,
-                        m: 1,
+                        m: 2,
                         bgcolor: 'background.paper',
                         borderRadius: 1,
                     }}
