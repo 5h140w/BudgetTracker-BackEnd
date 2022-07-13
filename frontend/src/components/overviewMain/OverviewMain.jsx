@@ -21,12 +21,20 @@ const OverViewMain = () =>{
     return(
         <>
             <div className='main'>
-                <Typography component={"h1"} sx={{ fontWeight :"1000", fontSize:32}}>
-                    Overview Page
-                </Typography>
-                <Typography component={"p"} sx={{fontWeight:"600", fontSize:12, float:"right",p:1}}>
-                    XX days
-                </Typography>
+                <Box
+                    sx={{
+                        m:1,
+                        p:1
+                    }}
+                >
+                    <Typography component={"h1"} sx={{ fontWeight :"1000", fontSize:32}}>
+                        Overview
+                    </Typography>
+                    <Typography component={"p"} sx={{fontWeight:"600", fontSize:12,p:1, display:"block",float:"right"}}>
+                        XX days
+                    </Typography>
+                </Box>
+
                 <Box
                     sx={{
                         display: 'flex',

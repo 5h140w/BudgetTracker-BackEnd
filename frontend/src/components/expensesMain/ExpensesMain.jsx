@@ -33,7 +33,7 @@ const ExpensesMain = () =>{
                     }}
                 >
                     <Typography component={"h1"} sx={{ fontWeight :"1000", fontSize:32}}>
-                        Expense Page
+                        Expenses
                     </Typography>
                     <Typography component={"p"} sx={{fontWeight:"600", fontSize:12,p:1, display:"block",float:"right"}}>
                         XX days
