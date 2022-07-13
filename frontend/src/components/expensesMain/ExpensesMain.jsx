@@ -5,9 +5,9 @@ const ExpensesMain = () =>{
     const data =[
         {
             _id:"54213",
-            nama:"dlkjsdf",
+            name:"dlkjsdf",
             amount:1,
-            
+
         }
     ]
     return(
