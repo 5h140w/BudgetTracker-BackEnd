@@ -12,15 +12,21 @@ const SideBar = () =>{
             </section>
             <ul className='menu_section'>
                 <li>
-                    <a href="/login">
+                    <a href="/overview">
                         <FontAwesomeIcon icon={faHome}/>
                         <span>Overview</span>
                     </a>
                 </li>
                 <li>
-                    <a href="/login">
+                    <a href="/expenses">
                         <FontAwesomeIcon icon={faMoneyBill1Wave}/>
                         <span>Expenses</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/add_expense">
+                        <FontAwesomeIcon icon={faMoneyBill1Wave}/>
+                        <span>Add Expense</span>
                     </a>
                 </li>
                 <li>
