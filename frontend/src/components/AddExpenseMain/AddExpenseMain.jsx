@@ -1,6 +1,6 @@
 import { Box, TextField, Typography,FormControl,MenuItem } from '@mui/material'
 import React from 'react'
-import { useEffect } from 'react'
+import { useEffect,useState } from 'react'
 import axios from "axios"
 
 const AddExpenseMain = () =>{
@@ -22,12 +22,12 @@ const currencies = [
     label: '¥',
   },
 ];
-    const categ
+    const [categories , setcategories] = useState([])
     useEffect(
         ()=>{
             axios.get("http://localhost:8080/category/all")
                 .then(
-                    (data) => console.log(data.data)
+                    (data) => setcategories(data.data)
                 )
         },[]
     )
@@ -64,9 +64,9 @@ const currencies = [
                             helperText="Please select the expense's category"
                             variant="standard"
                         >
-                        {currencies.map((option) => (
-                            <MenuItem key={option.value} value={option.value}>
-                                {option.label}
+                        {categories.map((option) => (
+                            <MenuItem key={option._id} value={option._id}>
+                                {option.name}
                             </MenuItem>
                         ))}
                         </TextField>
