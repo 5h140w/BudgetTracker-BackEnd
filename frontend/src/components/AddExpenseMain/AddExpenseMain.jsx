@@ -2,6 +2,7 @@ import { Box, TextField, Typography,FormControl,MenuItem , Button} from '@mui/ma
 import React from 'react'
 import { useEffect,useState } from 'react'
 import axios from "axios"
+import jwt_decode from "jwt-decode"
 
 const AddExpenseMain = () =>{
     const [categories , setcategories] = useState([])
@@ -9,25 +10,28 @@ const AddExpenseMain = () =>{
     const [amount,setamount] = useState("")
     const [category,setcategory]=useState("")
     const [description , setdescription] = useState("")
-    0
+    
     useEffect(
         ()=>{
             axios.get("http://localhost:8080/category/all")
                 .then(
                     (data) => setcategories(data.data)
+                ).catch(
+                    (err)=> console.log(err)
                 )
         },[]
     )
 
     const addExpense = (e) =>{
         e.preventDefault()
-
+        const user = jwt_decode(localStorage.getItem("token")).user_id
         axios.post(
             "http://localhost:8080/expense",{
                 name:name,
                 description: description,
                 amount: parseFloat(amount),
-                category: category
+                category: category,
+                user : user
             }
         ).then(
             (data) =>console.log(data)
