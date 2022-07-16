@@ -15,9 +15,13 @@ const AddExpenseMain = () =>{
         },[]
     )
 
-    addExpense = () =>{
+    const addExpense = (e) =>{
+        e.preventDefault()
+
         axios.post(
-            "http://localhost:8080/expense"
+            "http://localhost:8080/expense",{
+                
+            }
         ).then(
             (data) =>console.log(data)
         ).catch(
