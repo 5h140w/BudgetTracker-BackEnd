@@ -14,7 +14,19 @@ const AddExpenseMain = () =>{
                 )
         },[]
     )
-    
+
+    addExpense = () =>{
+        axios.post(
+            "http://localhost:8080/expense"
+        ).then(
+            (data) =>console.log(data)
+        ).catch(
+            (err)=>{
+                console.log(err)
+            }
+        )
+    }
+
     return(
         <div className='main'>
             <Box sx={{ m:1, p:1 }}
@@ -24,7 +36,7 @@ const AddExpenseMain = () =>{
                 </Typography>
             </Box>
             <Box sx={{ p:2, m:1 }}>
-                <Box component="form" sx={{margin:"auto", width:700, p:2, backgroundColor:"#fafafa", borderRadius: 5}}>
+                <Box component="form" sx={{margin:"auto", width:700, p:2, backgroundColor:"#fafafa", borderRadius: 5}} onSubmit={addExpense}>
                     <FormControl fullWidth={true} margin="dense" sx={{p:1 , backgroundColor:"white"}}>
                         <TextField
                             label="Name"
