@@ -1,28 +1,11 @@
-import { Box, TextField, Typography,FormControl,MenuItem } from '@mui/material'
+import { Box, TextField, Typography,FormControl,MenuItem , Button} from '@mui/material'
 import React from 'react'
 import { useEffect,useState } from 'react'
 import axios from "axios"
 
 const AddExpenseMain = () =>{
-const currencies = [
-  {
-    value: 'USD',
-    label: '$',
-  },
-  {
-    value: 'EUR',
-    label: '€',
-  },
-  {
-    value: 'BTC',
-    label: '฿',
-  },
-  {
-    value: 'JPY',
-    label: '¥',
-  },
-];
     const [categories , setcategories] = useState([])
+    
     useEffect(
         ()=>{
             axios.get("http://localhost:8080/category/all")
@@ -31,6 +14,7 @@ const currencies = [
                 )
         },[]
     )
+    
     return(
         <div className='main'>
             <Box sx={{ m:1, p:1 }}
@@ -78,6 +62,9 @@ const currencies = [
                             variant="standard"
                         />
                     </FormControl>
+
+                    <Button variant="contained" type="submit">Contained</Button>
+
                 </Box>
             </Box>
         </div>
