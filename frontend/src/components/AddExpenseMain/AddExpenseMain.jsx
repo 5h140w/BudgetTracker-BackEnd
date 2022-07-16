@@ -1,4 +1,4 @@
-import { Box, TextField, Typography } from '@mui/material'
+import { Box, TextField, Typography,FormControl } from '@mui/material'
 import React from 'react'
 
 const AddExpenseMain = () =>{
@@ -11,13 +11,27 @@ const AddExpenseMain = () =>{
                 </Typography>
             </Box>
             <Box sx={{ p:2, m:1 }}>
-                <Box component="form">
-                    <TextField
-                        label={"Text Value"} //optional
-                    />
-                    <TextField
-                        label={"Text Value"} //optional
-                    />
+                <Box component="form" sx={{margin:"auto", width:700}}>
+                    <FormControl fullWidth={true} margin="dense">
+                        <TextField
+                            label={"Text Value"} //optional
+                        />
+                    </FormControl>
+                    <FormControl fullWidth={true} margin="dense">
+                        <TextField
+                            label={"Text Value"} //optional
+                        />
+                    </FormControl>
+                    <FormControl fullWidth={true} margin="dense">
+                        <TextField
+                            label={"Text Value"} //optional
+                        />
+                    </FormControl>
+                    <FormControl fullWidth={true} margin="dense">
+                        <TextField
+                            label={"Text Value"} //optional
+                        />
+                    </FormControl>
                 </Box>
             </Box>
         </div>
