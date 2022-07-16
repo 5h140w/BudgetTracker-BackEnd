@@ -1,7 +1,13 @@
 import { Box, TextField, Typography,FormControl } from '@mui/material'
 import React from 'react'
+import { useEffect } from 'react'
 
 const AddExpenseMain = () =>{
+
+    useEffect(
+        ()=>{
+        },[]
+    )
     return(
         <div className='main'>
             <Box sx={{ m:1, p:1 }}
