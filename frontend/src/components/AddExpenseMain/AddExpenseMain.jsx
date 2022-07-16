@@ -24,7 +24,10 @@ const AddExpenseMain = () =>{
 
         axios.post(
             "http://localhost:8080/expense",{
-
+                name:name,
+                description: description,
+                amount: parseFloat(amount),
+                category: category
             }
         ).then(
             (data) =>console.log(data)
