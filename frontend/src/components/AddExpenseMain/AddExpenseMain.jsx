@@ -5,7 +5,11 @@ import axios from "axios"
 
 const AddExpenseMain = () =>{
     const [categories , setcategories] = useState([])
-    
+    const [name,setname] = useState("")
+    const [amount,setamount] = useState("")
+    const [category,setcategory]=useState("")
+    const [description , setdescription] = useState("")
+    0
     useEffect(
         ()=>{
             axios.get("http://localhost:8080/category/all")
@@ -20,7 +24,7 @@ const AddExpenseMain = () =>{
 
         axios.post(
             "http://localhost:8080/expense",{
-                
+
             }
         ).then(
             (data) =>console.log(data)
@@ -46,6 +50,7 @@ const AddExpenseMain = () =>{
                             label="Name"
                             placeholder="Enter the expense's name"
                             variant="standard"
+                            onChange={(e)=> setname(e.target.value)}
                         />
                     </FormControl>
                     <FormControl fullWidth={true} margin="dense" sx={{p:1, backgroundColor:"white"}}>
@@ -54,6 +59,7 @@ const AddExpenseMain = () =>{
                             label="Amount"
                             placeholder="Enter the expense's amount"
                             variant="standard"
+                            onChange={(e)=> setamount(e.target.value)}
                         />
                     </FormControl>
                     <FormControl fullWidth={true} margin="dense" sx={{p:1, backgroundColor:"white"}}>
@@ -62,6 +68,7 @@ const AddExpenseMain = () =>{
                             label="Category"
                             helperText="Please select the expense's category"
                             variant="standard"
+                            onChange={(e)=> setcategory(e.target.value)}
                         >
                         {categories.map((option) => (
                             <MenuItem key={option._id} value={option._id}>
@@ -76,6 +83,7 @@ const AddExpenseMain = () =>{
                             multiline
                             rows={4}
                             variant="standard"
+                            onChange={(e)=> setdescription(e.target.value)}
                         />
                     </FormControl>
 
