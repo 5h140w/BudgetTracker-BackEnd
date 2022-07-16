@@ -36,9 +36,13 @@ const AddExpenseMain = () =>{
                 user : user
             }
         ).then(
-            (data) =>{
+            () =>{
                 alert("Expense Added")
-                navigate("/overview")
+                setTimeout(
+                    ()=>{
+                        navigate("/overview")
+                    },2000
+                )
             }
         ).catch(
             (err)=>{
