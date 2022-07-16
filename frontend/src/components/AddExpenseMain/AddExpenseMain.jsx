@@ -3,6 +3,7 @@ import React from 'react'
 import { useEffect,useState } from 'react'
 import axios from "axios"
 import jwt_decode from "jwt-decode"
+import { useNavigate } from 'react-router-dom'
 
 const AddExpenseMain = () =>{
     const [categories , setcategories] = useState([])
@@ -10,7 +11,8 @@ const AddExpenseMain = () =>{
     const [amount,setamount] = useState("")
     const [category,setcategory]=useState("")
     const [description , setdescription] = useState("")
-    
+    let navigate = useNavigate()
+
     useEffect(
         ()=>{
             axios.get("http://localhost:8080/category/all")
@@ -34,7 +36,10 @@ const AddExpenseMain = () =>{
                 user : user
             }
         ).then(
-            (data) =>console.log(data)
+            (data) =>{
+                alert("Expense Added")
+                navigate("/overview")
+            }
         ).catch(
             (err)=>{
                 console.log(err)
