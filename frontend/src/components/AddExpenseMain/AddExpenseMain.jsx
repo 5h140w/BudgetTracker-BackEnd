@@ -58,7 +58,6 @@ const currencies = [
                     </FormControl>
                     <FormControl fullWidth={true} margin="dense" sx={{p:1, backgroundColor:"white"}}>
                         <TextField
-                            id="standard-select-currency"
                             select
                             label="Category"
                             helperText="Please select the expense's category"
@@ -73,7 +72,10 @@ const currencies = [
                     </FormControl>
                     <FormControl fullWidth={true} margin="dense" sx={{p:1, backgroundColor:"white"}}>
                         <TextField
-                            label={"Text Value"} //optional
+                            label="Description"
+                            multiline
+                            rows={4}
+                            variant="standard"
                         />
                     </FormControl>
                 </Box>
