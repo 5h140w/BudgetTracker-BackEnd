@@ -56,7 +56,7 @@ module.exports.deleteAllExpense = (req,res)=>{
 }
 
 
-module.exports.deleteByid = (req,res)=>{
+module.exports.deleteExpenseByid = (req,res)=>{
     const {user,id} = req.params
     Expense.deleteOne({_id:id,user:user})
         .then(
