@@ -1,18 +1,18 @@
-const Expense = require("../models/expense")
+const Transaction = require("../models/transaction")
 
 
-module.exports.getAllExpenses = async(req,res) =>{
-    const expenses = await Expense.find()
+module.exports.getAllTransactions = async(req,res) =>{
+    const trx = await Transaction.find()
                             .populate("category")
                             .populate("user")
-    return res.status(200).json(expenses)
+    return res.status(200).json(trx)
 }
 
 
-module.exports.getExpenseById = async(req,res) =>{
+module.exports.getTransactionById = async(req,res) =>{
     const {id} = req.params
     
-    Expense.findOne({_id:id})
+    Transaction.findOne({_id:id})
         .populate("category")
         .populate("user")
         .then(
@@ -29,21 +29,22 @@ module.exports.getExpenseById = async(req,res) =>{
 }
 
 
-module.exports.addExpense = async(req,res)=>{
-    const {name,description,category,amount,user} = req.body
+module.exports.addtransaction = async(req,res)=>{
+    const {name,description,category,amount,user,type} = req.body
 
-    const newExpense = new Expense({
+    const newTrx = new Transaction({
         name:name.toLowerCase(),
         description : description,
         category:category,
         amount:amount,
         user:user,
-        date : new Date().toLocaleDateString()
+        date : new Date().toLocaleDateString(),
+        type:type
     })
 
-    newExpense.save().then(
+    newTrx.save().then(
         ()=>{
-            return res.status(200).json({"msg":"expense Added"})
+            return res.status(200).json({"msg":"Transaction Added"})
         }
     ).catch(
         (err)=>{
@@ -53,11 +54,11 @@ module.exports.addExpense = async(req,res)=>{
 }
 
 
-module.exports.deleteExpense = (req,res) =>{
-    Expense.deleteOne({_id: req.params.id})
+module.exports.deleteTransaction = (req,res) =>{
+    Transaction.deleteOne({_id: req.params.id})
         .then(
             ()=>{
-                return res.status(200).json({"msg":"expense is deleted"})
+                return res.status(200).json({"msg":"Transaction is deleted"})
             }
         )
         .catch(
@@ -71,10 +72,10 @@ module.exports.deleteExpense = (req,res) =>{
 
 
 module.exports.deleteAll = (req,res)=>{
-    Expense.deleteMany()
+    Transaction.deleteMany()
         .then(
             ()=>{
-                return res.status(200).json({"msg":"all expenses are deleted!"})
+                return res.status(200).json({"msg":"all Transactions are deleted!"})
             }
         )
         .catch(
@@ -87,7 +88,7 @@ module.exports.deleteAll = (req,res)=>{
 
 module.exports.getUserExpenses = async(req,res) =>{
     const {user} = req.params
-    const totalExpenses = await Expense.find({user:user})
+    const totalExpenses = await Expense.find({user:user, type:"expense"})
     let totalAmount = 0
     totalExpenses.map(
         (exp) =>{
@@ -98,9 +99,9 @@ module.exports.getUserExpenses = async(req,res) =>{
 }
 
 
-module.exports.totalamount = async(req,res)=>{
+module.exports.totalamountExpenses = async(req,res)=>{
     const {user} = req.params
-    const totalExpenses = await Expense.find({user:user})
+    const totalExpenses = await Expense.find({user:user, type:"expense"})
     let totalAmount = 0
     totalExpenses.map(
         (exp) =>{
@@ -112,7 +113,7 @@ module.exports.totalamount = async(req,res)=>{
 
 module.exports.getExpenseToday = async(req,res) =>{
     const {user} = req.params
-    const TodayExpense = await Expense.find({date :new Date().toLocaleDateString(), user:user})
+    const TodayExpense = await Expense.find({date :new Date().toLocaleDateString(), user:user, type:"expense"})
     let TodayAmount = 0
     TodayExpense.map(
         (exp)=>{
@@ -123,9 +124,9 @@ module.exports.getExpenseToday = async(req,res) =>{
 
 }
 
-module.exports.todayAmount = async(req,res)=>{
+module.exports.todayAmountExpense = async(req,res)=>{
     const {user} = req.params
-    const TodayExpense = await Expense.find({date :new Date().toLocaleDateString(), user:user})
+    const TodayExpense = await Expense.find({date :new Date().toLocaleDateString(), user:user, type:"expense"})
     let todayAmount = 0
     TodayExpense.map(
         (exp) =>{
