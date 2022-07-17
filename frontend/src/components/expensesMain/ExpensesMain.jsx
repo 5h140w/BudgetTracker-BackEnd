@@ -2,10 +2,16 @@ import React,{useEffect , useState} from 'react'
 import { Box, Card, CardContent,Typography, Table, TableBody ,TableCell ,TableContainer ,TableHead ,TableRow ,Paper, Button } from '@mui/material'
 import axios from "axios"
 import jwt_decode from "jwt-decode"
+import { useNavigate } from 'react-router-dom'
 
 const ExpensesMain = () =>{
     const [data,setData] = useState([])
     const user_id = jwt_decode(localStorage.getItem("token")).user_id
+    let navigate = useNavigate()
+
+    const redirect = () =>{
+        navigate("/add_expense")
+    }
 
     useEffect(
         ()=>{
@@ -38,7 +44,7 @@ const ExpensesMain = () =>{
                     <Typography component={"p"} sx={{fontWeight:"600", fontSize:12,p:1, display:"block",float:"right"}}>
                         XX days
                     </Typography>
-                    <Button size="small" variant="contained">Add expense </Button>
+                    <Button size="small" variant="contained" onClick={redirect}>Add expense </Button>
                 </Box> 
                
                 <Box
