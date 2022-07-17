@@ -15,16 +15,27 @@ module.exports.getCategoryById = async(req,res) =>{
     return res.status(200).json(cat)
 }
 
+module.exports.getExpenseCategories = async (req,res) =>{
+    const expenseCategories = await Category.find({type:"expense"})
+
+    return res.status(200).json(expenseCategories)
+}
+
+module.exports.getDepositCategories = async (req,res) =>{
+    const depositCategories = await Category.find({type:"deposit"})
+    return res.status(200).json(depositCategories)
+}
 
 module.exports.addCategory = async(req,res) =>{
-    const {name, description} = req.body
+    const {name, description,type} = req.body
 
     const cat= await Category.findOne({name: name.toLowerCase()})
     if(cat) return res.status(404).json({"msg":"name should be unique"})
 
     const newCategory = new Category({
         name : name.toLowerCase(),
-        description : description
+        description : description,
+        type:type
     })
 
     newCategory.save().then(
@@ -41,9 +52,9 @@ module.exports.addCategory = async(req,res) =>{
 
 module.exports.modifyCategory = async(req,res) =>{
     const {id} = req.params
-    const {name,description} = req.body
+    const {name,description,type} = req.body
 
-    const updatedCategory = await Category.findByIdAndUpdate({_id: id},{name,description})
+    const updatedCategory = await Category.findByIdAndUpdate({_id: id},{name,description,type})
     if(!updatedCategory){
         return res.status(404).json({"msg":"Nonexistent Category"})
     }
