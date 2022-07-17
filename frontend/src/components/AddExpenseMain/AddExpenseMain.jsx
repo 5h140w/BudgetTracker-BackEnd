@@ -103,7 +103,9 @@ const AddExpenseMain = () =>{
                         />
                     </FormControl>
 
-                    <Button variant="contained" type="submit">Contained</Button>
+                    <Button variant="contained" type="submit" sx={{my:2}}>
+                        Contained
+                    </Button>
 
                 </Box>
             </Box>
