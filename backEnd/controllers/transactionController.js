@@ -8,6 +8,12 @@ module.exports.getAllTransactions = async(req,res) =>{
     return res.status(200).json(trx)
 }
 
+module.exports.getAllExpenses = async(req,res)=>{
+    const expenses = await Transaction.find({type:"expense"})
+                                .populate("category")
+                                .populate("user")
+    return res.status(200).json(expenses)
+}
 
 module.exports.getTransactionById = async(req,res) =>{
     const {id} = req.params
@@ -83,55 +89,4 @@ module.exports.deleteAll = (req,res)=>{
                 return res.status(404).json({"msg":err.message})
             }
         )
-}
-
-
-module.exports.getUserExpenses = async(req,res) =>{
-    const {user} = req.params
-    const totalExpenses = await Expense.find({user:user, type:"expense"})
-    let totalAmount = 0
-    totalExpenses.map(
-        (exp) =>{
-            totalAmount += exp.amount
-        }
-    ) 
-    return res.status(200).json({"amount": totalAmount, "data": totalExpenses})
-}
-
-
-module.exports.totalamountExpenses = async(req,res)=>{
-    const {user} = req.params
-    const totalExpenses = await Expense.find({user:user, type:"expense"})
-    let totalAmount = 0
-    totalExpenses.map(
-        (exp) =>{
-            totalAmount += exp.amount
-        }
-    ) 
-    return res.status(200).json({"msg": totalAmount})
-}
-
-module.exports.getExpenseToday = async(req,res) =>{
-    const {user} = req.params
-    const TodayExpense = await Expense.find({date :new Date().toLocaleDateString(), user:user, type:"expense"})
-    let TodayAmount = 0
-    TodayExpense.map(
-        (exp)=>{
-            TodayAmount += exp.amount
-        }
-    )
-    return res.status(200).json({"amount":TodayAmount , "data": TodayExpense})
-
-}
-
-module.exports.todayAmountExpense = async(req,res)=>{
-    const {user} = req.params
-    const TodayExpense = await Expense.find({date :new Date().toLocaleDateString(), user:user, type:"expense"})
-    let todayAmount = 0
-    TodayExpense.map(
-        (exp) =>{
-            todayAmount += exp.amount
-        }
-    ) 
-    return res.status(200).json({"msg": todayAmount})
 }

@@ -1,10 +1,10 @@
 const {Router} = require("express")
-const expenseController = require("../controllers/expenseController")
+const expenseController = require("../controllers/transactionController")
 
 const router = Router()
 
 router.get("/all", expenseController.getAllExpenses)
-router.get("/:id", expenseController.getExpenseById)
+router.get("/:id", expenseController.getTransactionById)
 router.get("/user/:user", expenseController.getUserExpenses)
 router.get("/totalamount/:user", expenseController.totalamount)
 router.get("/today/:user", expenseController.getExpenseToday)
