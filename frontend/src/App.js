@@ -16,6 +16,7 @@ function App() {
               <Route path="/overview" element={<OverViewPage/>}/>
               <Route path="/expenses" element={<ExpensesPage/>} />
               <Route path="/add_expense" element={<AddExpensePage/>} />
+              <Route path="/deposits" element={"iok"}/>
             </>:
             <>
               <Route path='/login' element={<LoginPage/>} />

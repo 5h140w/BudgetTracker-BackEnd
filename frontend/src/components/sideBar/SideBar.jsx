@@ -30,9 +30,9 @@ const SideBar = () =>{
                     </a>
                 </li>
                 <li>
-                    <a href="/login">
+                    <a href="/deposits">
                         <FontAwesomeIcon icon={faMoneyBillTransfer}/>
-                        <span>Deposit</span>
+                        <span>Deposits</span>
                     </a>
                 </li>
                 <li>
