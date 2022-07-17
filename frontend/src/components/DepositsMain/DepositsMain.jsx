@@ -2,6 +2,8 @@ import React from 'react'
 import {Box, Typography,Button} from "@mui/material"
 
 const DepositsMain = () =>{
+
+
     return(
         <div className='main'>
             <Box
@@ -16,8 +18,9 @@ const DepositsMain = () =>{
                     <Typography component={"p"} sx={{fontWeight:"600", fontSize:12,p:1, display:"block",float:"right"}}>
                         XX days
                     </Typography>
-                    <Button size="small" variant="contained">Add expense </Button>
-            </Box> 
+                    <Button size="small" variant="contained">Add Deposits</Button>
+            </Box>
+            
         </div>
     )
 }
