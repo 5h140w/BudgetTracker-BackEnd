@@ -7,6 +7,6 @@ router.get("/:id", expenseController.getExpenseByID)
 router.get("/user/:user", expenseController.getExpensesByUser)
 router.post("/",expenseController.addExpense)
 router.delete("/user/:user/", expenseController.deleteAllExpense)
-router.delete("/user/:user/:id", expenseController.deleteByid)
+router.delete("/user/:user/:id", expenseController.deleteExpenseByid)
 
 module.exports = router
