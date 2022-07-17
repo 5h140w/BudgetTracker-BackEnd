@@ -15,7 +15,7 @@ const AddDepositMain = ()=>{
                     <FormControl fullWidth={true} margin="dense" sx={{p:1 , backgroundColor:"white"}}>
                         <TextField
                             label="Name"
-                            placeholder="Enter the expense's name"
+                            placeholder="Enter the deposit's name"
                             variant="standard"
                         />
                     </FormControl>
@@ -26,7 +26,7 @@ const AddDepositMain = ()=>{
                                 step: "any"
                             }}
                             label="Amount"
-                            placeholder="Enter the expense's amount"
+                            placeholder="Enter the deposit's amount"
                             variant="standard"
                         />
                     </FormControl>
@@ -34,7 +34,7 @@ const AddDepositMain = ()=>{
                         <TextField
                             select
                             label="Category"
-                            helperText="Please select the expense's category"
+                            helperText="Please select the deposit's category"
                             variant="standard"
                         >
                         {categories.map((option) => (
