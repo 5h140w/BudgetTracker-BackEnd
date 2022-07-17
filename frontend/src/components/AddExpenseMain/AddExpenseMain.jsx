@@ -36,8 +36,8 @@ const AddExpenseMain = () =>{
                 user : user
             }
         ).then(
-            () =>{
-                alert("Expense Added")
+            (data) =>{
+                alert(data.data.msg)
                 setTimeout(
                     ()=>{
                         navigate("/overview")
@@ -72,6 +72,9 @@ const AddExpenseMain = () =>{
                     <FormControl fullWidth={true} margin="dense" sx={{p:1, backgroundColor:"white"}}>
                         <TextField
                             type="number"
+                            inputProps={{
+                                step: "any"
+                            }}
                             label="Amount"
                             placeholder="Enter the expense's amount"
                             variant="standard"
