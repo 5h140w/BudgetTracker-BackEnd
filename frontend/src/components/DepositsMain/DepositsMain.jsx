@@ -1,9 +1,9 @@
 import React from 'react'
-import {Box, Typography,Button, Card,CardContent} from "@mui/material"
+import {Box, Typography,Button, Card,CardContent, TableContainer,TableCell, TableRow,TableBody, TableHead,Paper, Table} from "@mui/material"
 
 const DepositsMain = () =>{
 
-
+    const data =[]
     return(
         <div className='main'>
             <Box
@@ -52,7 +52,38 @@ const DepositsMain = () =>{
                         </CardContent>
                     </Card>
                 </Box>
-                
+                <Box component="div" sx={{ p :2}}>
+                    <Typography sx={{ fontWeight:"600", fontSize: 14, mb:2 }}color="text.secondary">
+                        Last transactions
+                    </Typography>
+                    <TableContainer component={Paper}>
+                        <Table sx={{ minWidth: 650 }} aria-label="simple table">
+                            <TableHead>
+                            <TableRow>
+                                <TableCell> ID </TableCell>
+                                <TableCell align="right">Name</TableCell>
+                                <TableCell align="right">Amount</TableCell>
+                                <TableCell align="right">Description</TableCell>
+                            </TableRow>
+                            </TableHead>
+                            <TableBody>
+                            {data.map((row,index) => (
+                                <TableRow
+                                key={row._id}
+                                sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+                                >
+                                <TableCell component="th" scope="row">
+                                    {index}
+                                </TableCell>
+                                <TableCell align="right">{row.name}</TableCell>
+                                <TableCell align="right">{row.amount} TND</TableCell>
+                                <TableCell align="right">{row.description}</TableCell>
+                                </TableRow>
+                            ))}
+                            </TableBody>
+                        </Table>
+                    </TableContainer>
+                </Box>
         </div>
     )
 }
