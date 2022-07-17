@@ -11,7 +11,7 @@ const OverViewMain = () =>{
             axios.get(
                 "http://localhost:8080/expense/user/"+user_id
             ).then(
-                (data)=> setData(data.data.data)
+                (data)=> setData(data.data)
             ).catch(
                 (err)=> console.log(err)
             )

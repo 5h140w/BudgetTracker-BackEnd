@@ -19,7 +19,7 @@ const ExpensesMain = () =>{
                 .then(
                     (data)=>{
                         console.log(data)
-                        setData(data.data.data)
+                        setData(data.data)
                     }
                 ).catch(
                     (err)=>{
