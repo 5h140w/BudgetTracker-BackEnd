@@ -2,8 +2,8 @@ import React from 'react'
 import {Box, Typography,Button, Card,CardContent, TableContainer,TableCell, TableRow,TableBody, TableHead,Paper, Table} from "@mui/material"
 
 const DepositsMain = () =>{
-
     const data =[]
+
     return(
         <div className='main'>
             <Box
