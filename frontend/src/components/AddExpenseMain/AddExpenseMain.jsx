@@ -15,7 +15,7 @@ const AddExpenseMain = () =>{
 
     useEffect(
         ()=>{
-            axios.get("http://localhost:8080/category/all")
+            axios.get("http://localhost:8080/category/expense")
                 .then(
                     (data) => setcategories(data.data)
                 ).catch(
