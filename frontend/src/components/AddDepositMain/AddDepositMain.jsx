@@ -1,8 +1,10 @@
-import React from 'react'
+import React, {useState} from 'react'
 import {Box, Typography , FormControl,Button, TextField, MenuItem } from "@mui/material"
 
 const AddDepositMain = ()=>{
-    const categories =[]
+    const [categories , setcatories] = useState([])
+    
+    
     return(
         <div className="main">
             <Box sx={{ m:1, p:1 }}>
