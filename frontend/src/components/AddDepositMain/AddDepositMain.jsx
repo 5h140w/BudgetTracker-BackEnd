@@ -26,9 +26,21 @@ const AddDepositMain = ()=>{
     )
 
     const submit = (e) =>{
+        e.preventDefault()
         axios.post(
             'http://localhost:8080/deposit',{
-                
+                name:name,
+                amount: parseFloat(amount),
+                category:category,
+                description:description
+            }
+        ).then(
+            (data)=>{
+                console.log(data)
+            }
+        ).catch(
+            (err)=>{
+                console.log(err)
             }
         )
     }
