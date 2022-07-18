@@ -26,7 +26,7 @@ const AddDepositMain = ()=>{
         },[]
     )
 
-    const submit = (e) =>{
+    const add_deposit = (e) =>{
         e.preventDefault()
         const user = jwt_decode(localStorage.getItem("token")).user_id
         axios.post(
@@ -56,7 +56,7 @@ const AddDepositMain = ()=>{
                 </Typography>
             </Box>
             <Box sx={{ p:2, m:1 }}>
-                <Box component="form" sx={{margin:"auto", width:700, p:2, backgroundColor:"#fafafa", borderRadius: 5}} onSubmit={submit}>
+                <Box component="form" sx={{margin:"auto", width:700, p:2, backgroundColor:"#fafafa", borderRadius: 5}} onSubmit={add_deposit}>
                     <FormControl fullWidth={true} margin="dense" sx={{p:1 , backgroundColor:"white"}}>
                         <TextField
                             label="Name"
