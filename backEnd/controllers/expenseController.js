@@ -25,7 +25,7 @@ module.exports.addExpense = (req,res) =>{
         category:category,
         amount:amount,
         user:user,
-        date: new Date().toLocaleDateString(),
+        date: new Date().toLocaleString(),
         type:"expense"
     })
 
