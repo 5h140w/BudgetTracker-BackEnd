@@ -1,10 +1,26 @@
-import React, {useState} from 'react'
+import React, {useState,useEffect} from 'react'
 import {Box, Typography , FormControl,Button, TextField, MenuItem } from "@mui/material"
+import axios from 'axios'
 
 const AddDepositMain = ()=>{
     const [categories , setcatories] = useState([])
     
-    
+    useEffect(
+        ()=>{
+            axios.get(
+                "http://localhost:8080/category/deposit"
+            ).then(
+                (data)=>{
+                    console.log(data)
+                }
+            ).catch(
+                (err)=>{
+                    console.log(err)
+                }
+            )
+        },[]
+    )
+
     return(
         <div className="main">
             <Box sx={{ m:1, p:1 }}>
