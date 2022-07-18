@@ -25,11 +25,12 @@ const AddDepositMain = ()=>{
         },[]
     )
 
-    const submit = () =>{
-        console.log(name)
-        console.log(amount)
-        console.log(category)
-        console.log(description)
+    const submit = (e) =>{
+        axios.post(
+            'http://localhost:8080/deposit',{
+                
+            }
+        )
     }
 
     return(
