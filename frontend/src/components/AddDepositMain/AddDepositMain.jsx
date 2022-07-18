@@ -3,15 +3,15 @@ import {Box, Typography , FormControl,Button, TextField, MenuItem } from "@mui/m
 import axios from 'axios'
 
 const AddDepositMain = ()=>{
-    const [categories , setcatories] = useState([])
+    const [categories , setcategories] = useState([])
     
     useEffect(
         ()=>{
             axios.get(
                 "http://localhost:8080/category/deposit"
             ).then(
-                (data)=>{
-                    console.log(data)
+                (res)=>{
+                    setcategories(res.data)
                 }
             ).catch(
                 (err)=>{
