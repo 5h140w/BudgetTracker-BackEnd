@@ -14,6 +14,7 @@ const DepositsMain = () =>{
             axios.get("http://localhost:8080/deposit/user/"+user_id)
                 .then(
                     (res)=>{
+                        console.log(res.data)
                         setdata(res.data)
                     }
                 ).catch(

@@ -11,7 +11,8 @@ const TransactionSchema = new mongoose.Schema({
     },
     category : {
         type : mongoose.Schema.Types.ObjectId,
-        ref : "category"
+        ref : "category",
+        required:true,
     },
     amount:{
         type:Number,
@@ -19,7 +20,8 @@ const TransactionSchema = new mongoose.Schema({
     },
     user:{
         type:mongoose.Schema.Types.ObjectId,
-        ref : "user"
+        ref : "user",
+        required:true
     },
     date:{
         type: Date,
