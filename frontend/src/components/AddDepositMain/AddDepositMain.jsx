@@ -4,7 +4,11 @@ import axios from 'axios'
 
 const AddDepositMain = ()=>{
     const [categories , setcategories] = useState([])
-    
+    const [name,setname] = useState("")
+    const [amount, setamount] = useState("")
+    const [category,setcategory] = useState("")
+    const [description,setdescription] = useState("")
+
     useEffect(
         ()=>{
             axios.get(
@@ -35,6 +39,7 @@ const AddDepositMain = ()=>{
                             label="Name"
                             placeholder="Enter the deposit's name"
                             variant="standard"
+                            onChange={(e)=> setname(e.target.value)}
                         />
                     </FormControl>
                     <FormControl fullWidth={true} margin="dense" sx={{p:1, backgroundColor:"white"}}>
@@ -46,6 +51,7 @@ const AddDepositMain = ()=>{
                             label="Amount"
                             placeholder="Enter the deposit's amount"
                             variant="standard"
+                            onChange={(e)=> setamount(e.target.value)}
                         />
                     </FormControl>
                     <FormControl fullWidth={true} margin="dense" sx={{p:1, backgroundColor:"white"}}>
@@ -54,6 +60,7 @@ const AddDepositMain = ()=>{
                             label="Category"
                             helperText="Please select the deposit's category"
                             variant="standard"
+                            onChange={(e)=> setcategory(e.target.value)}
                         >
                         {categories.map((option) => (
                             <MenuItem key={option._id} value={option._id}>
@@ -68,6 +75,7 @@ const AddDepositMain = ()=>{
                             multiline
                             rows={4}
                             variant="standard"
+                            onChange={(e)=> setdescription(e.target.value)}
                         />
                     </FormControl>
 
