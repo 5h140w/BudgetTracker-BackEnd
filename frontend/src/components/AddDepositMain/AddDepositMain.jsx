@@ -25,6 +25,13 @@ const AddDepositMain = ()=>{
         },[]
     )
 
+    const submit = () =>{
+        console.log(name)
+        console.log(amount)
+        console.log(category)
+        console.log(description)
+    }
+
     return(
         <div className="main">
             <Box sx={{ m:1, p:1 }}>
@@ -33,7 +40,7 @@ const AddDepositMain = ()=>{
                 </Typography>
             </Box>
             <Box sx={{ p:2, m:1 }}>
-                <Box component="form" sx={{margin:"auto", width:700, p:2, backgroundColor:"#fafafa", borderRadius: 5}}>
+                <Box component="form" sx={{margin:"auto", width:700, p:2, backgroundColor:"#fafafa", borderRadius: 5}} onSubmit={submit}>
                     <FormControl fullWidth={true} margin="dense" sx={{p:1 , backgroundColor:"white"}}>
                         <TextField
                             label="Name"
