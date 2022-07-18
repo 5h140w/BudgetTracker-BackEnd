@@ -1,8 +1,28 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 import {Box, Typography,Button, Card,CardContent, TableContainer,TableCell, TableRow,TableBody, TableHead,Paper, Table} from "@mui/material"
+import axios from "axios"
+import jwt_decode from "jwt-decode"
 
 const DepositsMain = () =>{
-    const data =[]
+    const[data, setdata] = useState([])
+    const user_id = jwt_decode(localStorage.getItem("token")).user_id
+
+    useEffect(
+        ()=>{
+            axios.get("http://localhost:8080/deposit/user/"+user_id)
+                .then(
+                    (res)=>{
+                        setdata(res.data)
+                    }
+                ).catch(
+                    (err)=>{
+                        console.log(err)
+                    }
+                )
+        },[]
+    )
+
+
 
     return(
         <div className='main'>
