@@ -1,5 +1,6 @@
 import React, {useState,useEffect} from 'react'
 import {Box, Typography , FormControl,Button, TextField, MenuItem } from "@mui/material"
+import jwt_decode from 'jwt-decode'
 import axios from 'axios'
 
 const AddDepositMain = ()=>{
@@ -27,12 +28,14 @@ const AddDepositMain = ()=>{
 
     const submit = (e) =>{
         e.preventDefault()
+        const user = jwt_decode(localStorage.getItem("token")).user_id
         axios.post(
             'http://localhost:8080/deposit',{
                 name:name,
                 amount: parseFloat(amount),
                 category:category,
-                description:description
+                description:description,
+                user:user
             }
         ).then(
             (data)=>{
