@@ -87,8 +87,8 @@ const ExpensesMain = () =>{
                         <TableBody>
                         {data.map((row,index) => (
                             <TableRow
-                            key={row._id}
-                            sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+                                key={row._id}
+                                sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                             >
                             <TableCell component="th" scope="row">
                                 {index}
