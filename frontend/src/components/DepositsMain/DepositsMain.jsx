@@ -30,12 +30,7 @@ const DepositsMain = () =>{
 
     return(
         <div className='main'>
-            <Box
-                sx={{
-                        m:1,
-                        p:1
-                }}
-            >
+            <Box sx={{m:1,p:1}}>
                 <Typography component={"h1"} sx={{ fontWeight :"1000", fontSize:32}}>
                     Deposits
                 </Typography>
@@ -44,17 +39,15 @@ const DepositsMain = () =>{
                 </Typography>
                 <Button size="small" variant="contained" onClick={redirect}>Add Deposits</Button>
             </Box>
-            <Box
-                sx={{
-                    display: 'flex',
-                    flexWrap: 'wrap',
-                    justifyContent:"center",
-                    p: 1,
-                    m: 1,
-                    bgcolor: 'background.paper',
-                    borderRadius: 1,
-                }}
-            >
+            <Box sx={{
+                display: 'flex',
+                flexWrap: 'wrap',
+                justifyContent:"center",
+                p: 1,
+                m: 1,
+                bgcolor: 'background.paper',
+                borderRadius: 1,
+            }}>
                 <Card sx={{width:"500px", m:2, p:2}}>
                     <CardContent>
                         <Typography sx={{ fontWeight:"600", fontSize: 14 }}color="text.secondary">
