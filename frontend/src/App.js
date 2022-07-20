@@ -20,6 +20,7 @@ function App() {
               <Route path="/add_expense" element={<AddExpensePage/>} />
               <Route path="/deposits" element={<DepositsPage/>}/>
               <Route path="/add_deposit" element={<AddDepositPage/>} />
+              <Route path="/dashboard" element={}/>
             </>:
             <>
               <Route path='/login' element={<LoginPage/>} />
