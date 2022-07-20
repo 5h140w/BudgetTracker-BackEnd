@@ -36,7 +36,7 @@ const DashboardMain = () =>{
                         },
                         ],
                     }}
-                    ></CChartLine>
+                />
             </Box>
         </div>
     )
