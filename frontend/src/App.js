@@ -7,6 +7,7 @@ import ExpensesPage from './pages/ExpensesPage/ExpensesPage';
 import AddExpensePage from './pages/AddExpensePage/AddExpensePage';
 import DepositsPage from './pages/DepositsPage/DepositsPage';
 import AddDepositPage from './pages/AddDepositPage/AddDepositPage';
+import DashboardPage from './pages/DashboardPage/DashboardPage';
 
 function App() {
   return (
@@ -20,7 +21,7 @@ function App() {
               <Route path="/add_expense" element={<AddExpensePage/>} />
               <Route path="/deposits" element={<DepositsPage/>}/>
               <Route path="/add_deposit" element={<AddDepositPage/>} />
-              <Route path="/dashboard" element={}/>
+              <Route path="/dashboard" element={<DashboardPage/>}/>
             </>:
             <>
               <Route path='/login' element={<LoginPage/>} />
