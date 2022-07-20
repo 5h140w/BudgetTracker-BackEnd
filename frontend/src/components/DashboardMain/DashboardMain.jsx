@@ -1,11 +1,22 @@
 import { Box } from '@mui/material'
-import React, { useRef } from 'react'
-import { CChart, CChartLine } from "@coreui/react-chartjs"
+import React, { useRef, useState } from 'react'
+import {  CChartLine } from "@coreui/react-chartjs"
+import { useEffect } from 'react'
 
 const DashboardMain = () =>{
 
     const ref = useRef()
-    
+    const [wait, setwait] = useState(false)
+    useEffect(
+        ()=>{
+            setTimeout(
+                ()=>{
+                    setwait(true)
+                    console.log("ok")
+                },2000
+            )
+        }
+    )
     return(
         <div className='main'>
             <Box sx={{m:1,p:1}}>
@@ -14,7 +25,6 @@ const DashboardMain = () =>{
             <Box sx={{m:1,p:1}}>
                 <CChartLine
                     ref={ref}
-                    type="line" 
                     data={{
                         labels: ["January", "February", "March", "April", "May", "June", "July"],
                         datasets: [
