@@ -11,6 +11,8 @@ a{
 
 .main{
     margin-left: 300px;
+    position: relative;
+
 }
 
 .main h1{
