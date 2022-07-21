@@ -88,8 +88,7 @@ const DashboardMain = () =>{
                     
                 />
             </Box>
-            <Box sx={{width:"400px",height:"400px"}}
-            >
+            <Box sx={{width:"400px",height:"400px"}}>
                 <Line options={options} data={data1}/>
             </Box>
        </div>
