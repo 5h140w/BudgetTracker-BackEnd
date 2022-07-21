@@ -1,12 +1,49 @@
 import React from 'react'
 import {Box, Typography} from "@mui/material"
-import { Doughnut } from 'react-chartjs-2';
-import {Chart, ArcElement, Tooltip, Legend } from 'chart.js'
+import { Doughnut, Line } from 'react-chartjs-2';
+import {Chart, ArcElement, Tooltip, Legend, CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Title,} from 'chart.js'
 
 const DashboardMain = () =>{
     
-    Chart.register(ArcElement, Tooltip, Legend);
+    Chart.register(ArcElement, Tooltip, Legend, CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement, Title);
 
+    const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
+    const data1 = {
+        labels,
+        datasets: [
+            {
+            label: 'Dataset 1',
+            data: [1,87,564,123,564,6454,1213],
+            borderColor: 'rgb(255, 99, 132)',
+            backgroundColor: 'rgba(255, 99, 132, 0.5)',
+            },
+            {
+            label: 'Dataset 2',
+            data: [1,87,666,13218,894,6564,645],
+            borderColor: 'rgb(53, 162, 235)',
+            backgroundColor: 'rgba(53, 162, 235, 0.5)',
+            },
+        ],
+    };
+    const options = {
+        responsive: true,
+        plugins: {
+            legend: {
+            position: 'top',
+            },
+            title: {
+            display: true,
+            text: 'Chart.js Line Chart',
+            },
+        },
+    };
     const data = {
         labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
         datasets: [
@@ -56,7 +93,11 @@ const DashboardMain = () =>{
                     
                 />
             </Box>
-
+            <Box
+                sx={{width:"400px",height:"400px"}}
+            >
+                <Line options={options} data={data1}/>
+            </Box>
        </div>
     )
 }
