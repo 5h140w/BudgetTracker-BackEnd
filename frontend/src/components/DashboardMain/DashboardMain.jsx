@@ -26,7 +26,7 @@ const DashboardMain = () =>{
             },
             {
             label: 'Dataset 2',
-            data: [1,87,666,13218,894,6564,645],
+            data: [1,87,666,1318,894,6564,645],
             borderColor: 'rgb(53, 162, 235)',
             backgroundColor: 'rgba(53, 162, 235, 0.5)',
             },
