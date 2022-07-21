@@ -21,12 +21,7 @@ const OverViewMain = () =>{
     return(
         <>
             <div className='main'>
-                <Box
-                    sx={{
-                        m:1,
-                        p:1
-                    }}
-                >
+                <Box sx={{ p:1}}>
                     <Typography component={"h1"} sx={{ fontWeight :"1000", fontSize:32}}>
                         Overview
                     </Typography>
