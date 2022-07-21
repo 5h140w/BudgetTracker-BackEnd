@@ -1,11 +1,11 @@
 import React from 'react'
 import {Box, Typography} from "@mui/material"
 import { Doughnut } from 'react-chartjs-2';
-import {Chart, ArcElement} from 'chart.js'
+import {Chart, ArcElement, Tooltip, Legend } from 'chart.js'
 
 const DashboardMain = () =>{
     
-    Chart.register(ArcElement);
+    Chart.register(ArcElement, Tooltip, Legend);
 
     const data = {
         labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
@@ -44,12 +44,14 @@ const DashboardMain = () =>{
                     XX days
                 </Typography>
             </Box>
-            <Box>
-                <Doughnut 
-                    sx={
+            <Box 
+                sx={
                         {width:"400px",
                         height:"400px"
                     }}
+            >
+                <Doughnut 
+                    
                     data={data}
                     
                 />
