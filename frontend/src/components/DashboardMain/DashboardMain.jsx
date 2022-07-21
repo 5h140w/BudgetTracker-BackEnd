@@ -81,9 +81,7 @@ const DashboardMain = () =>{
                     XX days
                 </Typography>
             </Box>
-            <Box 
-                sx={{width:"400px",height:"400px"}}
-            >
+            <Box sx={{width:"400px",height:"400px"}}>
                 <Doughnut 
                     
                     data={data}
