@@ -18,6 +18,9 @@ app.use("/category",categoryRouter)
 app.use("/expense", expenseRouter)
 app.use("/deposit", depositRouter)
 
-app.listen(8080,()=>{
+
+
+
+app.listen(process.env.PORT,()=>{
     console.log("listening to port 8080")
 })
