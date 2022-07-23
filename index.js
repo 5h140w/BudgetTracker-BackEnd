@@ -7,6 +7,8 @@ const userRouter = require("./routers/userRouter")
 const categoryRouter = require("./routers/categoryRouter")
 const expenseRouter = require("./routers/expenseRouter")
 const depositRouter = require("./routers/depositRouter")
+const port = port = process.env.PORT || 80
+
 
 app.use(express.json())
 app.use(express.urlencoded({extended:true}))
@@ -21,6 +23,6 @@ app.use("/deposit", depositRouter)
 
 
 
-app.listen(process.env.PORT,()=>{
+app.listen(port,()=>{
     console.log("listening to port 8080")
 })
