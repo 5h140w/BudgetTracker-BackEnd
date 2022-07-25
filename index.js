@@ -20,11 +20,6 @@ app.use("/category",categoryRouter)
 app.use("/expense", expenseRouter)
 app.use("/deposit", depositRouter)
 
-app.get("/",(req,res)=>{
-    res.send("hello there")
-})
-
-
 app.listen(port,()=>{
     console.log("listening to port 8080")
 })
