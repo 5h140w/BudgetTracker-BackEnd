@@ -3,7 +3,7 @@ const mongoose = require("mongoose")
 module.exports.connect = () =>{
     mongoose
         .connect(
-            "mongodb+srv://shady:Sexyboy%4023@cluster0.vnsnl.mongodb.net/test",{
+            "mongodb://localhost:27017/BudgetTracker",{
                 useNewUrlParser:true,
                 useUnifiedTopology: true,
             }
