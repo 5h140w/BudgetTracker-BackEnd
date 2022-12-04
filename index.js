@@ -7,7 +7,7 @@ const userRouter = require("./routers/userRouter")
 const categoryRouter = require("./routers/categoryRouter")
 const expenseRouter = require("./routers/expenseRouter")
 const depositRouter = require("./routers/depositRouter")
-const port = process.env.PORT || 80
+const port = process.env.PORT || 8080
 
 
 app.use(express.json())
