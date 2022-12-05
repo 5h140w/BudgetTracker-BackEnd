@@ -8,6 +8,17 @@ module.exports.getAllTransactions = async(req,res) =>{
     return res.status(200).json(trx)
 }
 
+
+module.exports.getlast5transactions = async(req,res) =>{
+    const trx = await Transaction.find()
+                            .populate("category")
+                            .populate("user")
+                            .limit(5)
+                            .sort({createdAt: 'desc'})
+    return res.status(200).json(trx)
+}
+
+
 module.exports.getAllExpenses = async(req,res)=>{
     const expenses = await Transaction.find({type:"expense"})
                                 .populate("category")
