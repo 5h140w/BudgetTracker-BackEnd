@@ -16,6 +16,17 @@ module.exports.getExpenseByID = async (req,res)=>{
     
 }
 
+module.exports.getlast5Expenses = async(req,res) =>{
+    const {id}= req.params
+    const trx = await Expense.find({type:"expense"})
+                            .populate("category")
+                            .populate("user")
+                            .limit(5)
+                            .sort({createdAt: 'desc'})
+    return res.status(200).json(trx)
+}
+
+
 module.exports.addExpense = (req,res) =>{
     const {name,description,category,amount,user} = req.body
 
