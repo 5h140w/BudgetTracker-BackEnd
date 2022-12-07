@@ -17,8 +17,8 @@ module.exports.getExpenseByID = async (req,res)=>{
 }
 
 module.exports.getlast5Expenses = async(req,res) =>{
-    const {id}= req.params
-    const trx = await Expense.find({type:"expense"})
+    const {user}= req.params
+    const trx = await Expense.find({user:user,type:"expense"})
                             .populate("category")
                             .populate("user")
                             .limit(5)
