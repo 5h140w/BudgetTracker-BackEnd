@@ -7,6 +7,16 @@ module.exports.getDepositsByUser = async(req,res) =>{
     return res.status(200).json(deposits)
 }
 
+module.exports.getlast5Expenses = async(req,res) =>{
+    const {user}= req.params
+    const trx = await Deposit.find({user:user,type:"deposit"})
+                            .populate("category")
+                            .populate("user")
+                            .limit(5)
+                            .sort({createdAt: 'desc'})
+    return res.status(200).json(trx)
+}
+
 module.exports.getDepositByID = async(req,res) =>{
     const {id} = req.params
     const deposit = await Deposit.findOne({_id:id})
