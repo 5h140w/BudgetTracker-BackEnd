@@ -3,8 +3,8 @@ const expenseController = require("../controllers/expenseController")
 
 const router = Router()
 
-router.get("/:user", expenseController.getExpenseByID)
-router.get("/:id/5", expenseController.getlast5Expenses)
+router.get("/:id", expenseController.getExpenseByID)
+router.get("/:user/5", expenseController.getlast5Expenses)
 router.get("/user/:user", expenseController.getExpensesByUser)
 router.post("/",expenseController.addExpense)
 router.delete("/user/:user/", expenseController.deleteAllExpense)
