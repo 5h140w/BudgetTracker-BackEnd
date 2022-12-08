@@ -78,3 +78,22 @@ module.exports.deleteDepositByid = (req,res)=>{
             }
         )
 }
+
+
+module.exports.getDepositsPerMonth = async (req,res) =>{
+    const {user} = req.params
+    const year = new Date().getFullYear()
+    const depositsPerMonth =[]
+    
+    for(let i = 0 ; i< 12 ; i++){
+        let fromDate = new Date(year , i , 1)
+        let toDate = new Date( year, i+1 , 0)
+        let x = 0
+        let deposits = await Expense.find({ user:user,type:"deposit", createdAt :{ "$gte": fromDate , "$lte":toDate}})
+        
+        deposits.forEach(expense => {x += expense.amount});
+        depositsPerMonth.push(x)
+    } 
+
+    return res.status(200).json(depositsPerMonth)
+}

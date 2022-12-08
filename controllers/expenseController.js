@@ -93,8 +93,7 @@ module.exports.getExpensesPerMonth = async (req,res) =>{
         let x = 0
         let expenses = await Expense.find({ user:user,type:"expense", createdAt :{ "$gte": fromDate , "$lte":toDate}})
         
-        expenses.forEach(element => {x += element.amount});
-
+        expenses.forEach(expense => {x += expense.amount});
         expensesPerMonth.push(x)
     } 
 
