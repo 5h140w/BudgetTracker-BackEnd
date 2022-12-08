@@ -82,7 +82,7 @@ module.exports.deleteExpenseByid = (req,res)=>{
 }
 
 
-module.exports.ExpensesPerMonth = async (req,res) =>{
+module.exports.getExpensesPerMonth = async (req,res) =>{
     const {user} = req.params
     const year = new Date().getFullYear()
     const expensesPerMonth =[]
@@ -91,11 +91,9 @@ module.exports.ExpensesPerMonth = async (req,res) =>{
         let fromDate = new Date(year , i , 1)
         let toDate = new Date( year, i+1 , 0)
         let x = 0
-        let expenses = await Expense.find({ type:"expense", createdAt :{ "$gte": fromDate , "$lte":toDate}})
+        let expenses = await Expense.find({ user:user,type:"expense", createdAt :{ "$gte": fromDate , "$lte":toDate}})
         
-        expenses.forEach(element => {
-            x += element.amount
-        });
+        expenses.forEach(element => {x += element.amount});
 
         expensesPerMonth.push(x)
     } 
