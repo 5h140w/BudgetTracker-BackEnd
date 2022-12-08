@@ -89,7 +89,7 @@ module.exports.getDepositsPerMonth = async (req,res) =>{
         let fromDate = new Date(year , i , 1)
         let toDate = new Date( year, i+1 , 0)
         let x = 0
-        let deposits = await Expense.find({ user:user,type:"deposit", createdAt :{ "$gte": fromDate , "$lte":toDate}})
+        let deposits = await Deposit.find({ user:user,type:"deposit", createdAt :{ "$gte": fromDate , "$lte":toDate}})
         
         deposits.forEach(expense => {x += expense.amount});
         depositsPerMonth.push(x)
