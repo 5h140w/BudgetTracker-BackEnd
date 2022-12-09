@@ -10,9 +10,10 @@ module.exports.getExpensesByUser = async (req,res)=>{
 
 module.exports.getExpenseByID = async (req,res)=>{
     const {id}= req.params
-    const expense =await Expense.findOne({_id:id})
+    const expense =await Expense.findOne({_id:id , type: "expense"})
 
-    return res.status(200).json(expense)
+    if(expense) return res.status(200).json(expense)
+    else return res.status(404).json({"msg": "Not found"})
     
 }
 

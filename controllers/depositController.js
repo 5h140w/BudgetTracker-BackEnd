@@ -7,7 +7,7 @@ module.exports.getDepositsByUser = async(req,res) =>{
     return res.status(200).json(deposits)
 }
 
-module.exports.getlast5Expenses = async(req,res) =>{
+module.exports.getlast5Deposits = async(req,res) =>{
     const {user}= req.params
     const trx = await Deposit.find({user:user,type:"deposit"})
                             .populate("category")
@@ -19,8 +19,9 @@ module.exports.getlast5Expenses = async(req,res) =>{
 
 module.exports.getDepositByID = async(req,res) =>{
     const {id} = req.params
-    const deposit = await Deposit.findOne({_id:id})
-    return res.status(200).json(deposit)
+    const deposit = await Deposit.findOne({_id:id , type:"expense"})
+    if(deposit) return res.status(200).json(deposit)
+    else return res.status(404).json({"msg": "Not found"})
 }
 
 module.exports.addDeposit = (req,res) =>{
@@ -46,6 +47,29 @@ module.exports.addDeposit = (req,res) =>{
         }
     )
 }
+
+module.exports.changDeposit = ( req,res) =>{
+    const {id} = req.params
+    const {name, amount, description, category} = req.body
+
+    Deposit.updateOne({_id: id} , {
+        name: name.toLowerCase(),
+        amount: parseFloat(amount),
+        description: description,
+        category:category,
+        updatedAt : new Date()
+    }).then( 
+        () => {
+            return res.status(200).json({"msg":"Deposit updated"})
+        }
+    ).catch(
+        (err) =>{
+            return res.status(404).json({"msg":err.message})
+        }
+    )
+
+}
+
 
 
 module.exports.deleteAllDeposits = (req,res)=>{
@@ -90,7 +114,7 @@ module.exports.getDepositsPerMonth = async (req,res) =>{
         let x = 0
         let deposits = await Deposit.find({ user:user,type:"deposit", createdAt :{ "$gte": fromDate , "$lte":toDate}})
         
-        deposits.forEach(expense => {x += expense.amount});
+        deposits.forEach(depo => {x += depo.amount});
         depositsPerMonth.push(x)
     } 
 
