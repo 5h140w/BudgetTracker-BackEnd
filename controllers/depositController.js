@@ -3,7 +3,7 @@ const Deposit = require("../models/transaction")
 module.exports.getDepositsByUser = async(req,res) =>{
     const{user} = req.params
     const deposits = await Deposit.find({user:user,type:"deposit"})
-    
+                                    
     return res.status(200).json(deposits)
 }
 
@@ -20,7 +20,8 @@ module.exports.getlast5Expenses = async(req,res) =>{
 module.exports.getDepositByID = async(req,res) =>{
     const {id} = req.params
     const deposit = await Deposit.findOne({_id:id})
-
+                                .populate("category")
+                                .populate("user")
     return res.status(200).json(deposit)
 }
 
