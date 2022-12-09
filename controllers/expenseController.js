@@ -51,6 +51,27 @@ module.exports.addExpense = (req,res) =>{
     )
 }
 
+module.exports.changeExpense = ( req,res) =>{
+    const {id} = req.params
+    const {name, amount, description, category} = req.body
+
+    Expense.updateOne({_id: id} , {
+        name: name.toLowerCase(),
+        amount: parseFloat(amount),
+        description: description,
+        category:category,
+        updatedAt : new Date()
+    }).then( 
+        () => {
+            return res.status(200).json({"msg":"Expense updated"})
+        }
+    ).catch(
+        (err) =>{
+            return res.status(404).json({"msg":err.message})
+        }
+    )
+
+}
 
 module.exports.deleteAllExpense = (req,res)=>{
     const {user} = req.params

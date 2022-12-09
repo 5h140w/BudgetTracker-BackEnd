@@ -8,6 +8,7 @@ router.get("/:user/5", expenseController.getlast5Expenses)
 router.get("/user/:user", expenseController.getExpensesByUser)
 router.get("/months/:user" , expenseController.getExpensesPerMonth)
 router.post("/",expenseController.addExpense)
+router.put("/:id", expenseController.changeExpense)
 router.delete("/user/:user/", expenseController.deleteAllExpense)
 router.delete("/user/:user/:id", expenseController.deleteExpenseByid)
 
