@@ -11,8 +11,6 @@ module.exports.getExpensesByUser = async (req,res)=>{
 module.exports.getExpenseByID = async (req,res)=>{
     const {id}= req.params
     const expense =await Expense.findOne({_id:id})
-                                .populate("category")
-                                .populate("user")
 
     return res.status(200).json(expense)
     
