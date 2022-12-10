@@ -101,3 +101,19 @@ module.exports.deleteAll = (req,res)=>{
             }
         )
 }
+
+
+
+
+module.exports.getbalance = async (req , res ) =>{
+    const {user} = req.params
+    let balance =0
+    const trx = await Transaction.find({user: user})
+
+    trx.forEach(element => {
+        element.type === "expense" ? balance -= element.amount : balance += element.amount 
+    });
+
+    return res.status(200).json(balance)
+
+}
