@@ -19,7 +19,7 @@ module.exports.getlast5Deposits = async(req,res) =>{
 
 module.exports.getDepositByID = async(req,res) =>{
     const {id} = req.params
-    const deposit = await Deposit.findOne({_id:id , type:"expense"})
+    const deposit = await Deposit.findOne({_id:id , type:"deposit"})
     if(deposit) return res.status(200).json(deposit)
     else return res.status(404).json({"msg": "Not found"})
 }
