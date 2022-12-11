@@ -130,8 +130,7 @@ module.exports.getMonthlyDeposit = async (req,res) =>{
     let DepositsMonth =0
     let fromDate = new Date(year , month , 1)
     let toDate = new Date( year, month+1 , 0)
-    console.log(toDate)
-    let Deposits = await Deposit.find({ user:user,type:"Deposit", createdAt :{ "$gte": fromDate , "$lte":toDate}})
+    let Deposits = await Deposit.find({ user:user,type:"deposit", createdAt :{ "$gte": fromDate , "$lte":toDate}})
     Deposits.forEach(Deposit => { DepositsMonth += Deposit.amount});
     return res.status(200).json(DepositsMonth)
 }
