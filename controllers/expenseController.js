@@ -1,4 +1,5 @@
 const Expense = require("../models/transaction")
+const { copy } = require("../routers/transactionRouter")
 
 
 module.exports.getExpensesByUser = async (req,res)=>{
@@ -120,4 +121,17 @@ module.exports.getExpensesPerMonth = async (req,res) =>{
     } 
 
     return res.status(200).json(expensesPerMonth)
+}
+
+module.exports.getMonthlyExpense = async (req,res) =>{
+    const {user} = req.params
+    const year = new Date().getFullYear()
+    const month = new Date().getMonth()
+    let expensesMonth =0
+    let fromDate = new Date(year , month , 1)
+    let toDate = new Date( year, month+1 , 0)
+    console.log(toDate)
+    let expenses = await Expense.find({ user:user,type:"expense", createdAt :{ "$gte": fromDate , "$lte":toDate}})
+    expenses.forEach(expense => { expensesMonth += expense.amount});
+    return res.status(200).json(expensesMonth)
 }
