@@ -138,9 +138,14 @@ module.exports.getMonthlyDeposit = async (req,res) =>{
 
 
 module.exports.getbycategories = async() =>{
-    const deposits = await Deposit.find({type:"deposit"})
-                            .populate("category","name")
-    
-    console.log(deposits)
+    const deposits = await Deposit.aggregate([
+                                {
+                                    $group : {
+                                        _id: "$category",
+                                        total: { $sum: { $multiply : [ "$amount" , 1 ] } }
+                                    }
+                                }
+                            ])
 
+    console.log(deposits)
 }
