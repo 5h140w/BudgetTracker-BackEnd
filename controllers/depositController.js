@@ -1,3 +1,4 @@
+const category = require("../models/category")
 const Deposit = require("../models/transaction")
 
 module.exports.getDepositsByUser = async(req,res) =>{
@@ -137,8 +138,11 @@ module.exports.getMonthlyDeposit = async (req,res) =>{
 
 
 
-module.exports.getbycategories = async() =>{
+module.exports.getbycategories = async(req,res) =>{
     const deposits = await Deposit.aggregate([
+                                {
+                                    $match : { "type" : "deposit"}
+                                },
                                 {
                                     $group : {
                                         _id: "$category",
@@ -147,6 +151,7 @@ module.exports.getbycategories = async() =>{
                                 }
                             ])
     
+    const result = await category.populate(deposits , {path: "_id"})
 
-
+    return res.status(200).json(result)
 }
