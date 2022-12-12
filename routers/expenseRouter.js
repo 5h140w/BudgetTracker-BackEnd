@@ -3,6 +3,7 @@ const expenseController = require("../controllers/expenseController")
 
 const router = Router()
 
+router.get("/category" , expenseController.getbycategories)
 router.get("/:id", expenseController.getExpenseByID)
 router.get("/:user/5", expenseController.getlast5Expenses)
 router.get("/user/:user", expenseController.getExpensesByUser)

@@ -1,5 +1,5 @@
 const Expense = require("../models/transaction")
-const { copy } = require("../routers/transactionRouter")
+const category = require("../models/category")
 
 
 module.exports.getExpensesByUser = async (req,res)=>{
@@ -133,4 +133,24 @@ module.exports.getMonthlyExpense = async (req,res) =>{
     let expenses = await Expense.find({ user:user,type:"expense", createdAt :{ "$gte": fromDate , "$lte":toDate}})
     expenses.forEach(expense => { expensesMonth += expense.amount});
     return res.status(200).json(expensesMonth)
+}
+
+
+
+module.exports.getbycategories = async(req,res) =>{
+    const expenses = await Expense.aggregate([
+                                {
+                                    $match : { "type" : "deposit"}
+                                },
+                                {
+                                    $group : {
+                                        _id: "$category",
+                                        total: { $sum: { $multiply : [ "$amount" , 1 ] } }
+                                    },
+                                }
+                            ])
+    
+    const result = await category.populate(expenses , {path: "_id"})
+
+    return res.status(200).json(result)
 }
