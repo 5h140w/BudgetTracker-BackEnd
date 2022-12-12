@@ -134,3 +134,12 @@ module.exports.getMonthlyDeposit = async (req,res) =>{
     Deposits.forEach(Deposit => { DepositsMonth += Deposit.amount});
     return res.status(200).json(DepositsMonth)
 }
+
+
+
+module.exports.getbycategories = async() =>{
+    const deposits = await Deposit.find({}).populate("category","name")
+    
+    console.log(deposits)
+
+}
