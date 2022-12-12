@@ -143,9 +143,10 @@ module.exports.getbycategories = async() =>{
                                     $group : {
                                         _id: "$category",
                                         total: { $sum: { $multiply : [ "$amount" , 1 ] } }
-                                    }
+                                    },
                                 }
                             ])
+    
 
-    console.log(deposits)
+
 }
