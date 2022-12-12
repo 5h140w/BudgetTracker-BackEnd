@@ -130,7 +130,6 @@ module.exports.getMonthlyExpense = async (req,res) =>{
     let expensesMonth =0
     let fromDate = new Date(year , month , 1)
     let toDate = new Date( year, month+1 , 0)
-    console.log(toDate)
     let expenses = await Expense.find({ user:user,type:"expense", createdAt :{ "$gte": fromDate , "$lte":toDate}})
     expenses.forEach(expense => { expensesMonth += expense.amount});
     return res.status(200).json(expensesMonth)
