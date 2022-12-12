@@ -138,7 +138,8 @@ module.exports.getMonthlyDeposit = async (req,res) =>{
 
 
 module.exports.getbycategories = async() =>{
-    const deposits = await Deposit.find({}).populate("category","name")
+    const deposits = await Deposit.find({type:"deposit"})
+                            .populate("category","name")
     
     console.log(deposits)
 
