@@ -138,19 +138,21 @@ module.exports.getMonthlyExpense = async (req,res) =>{
 
 
 module.exports.getbycategories = async(req,res) =>{
-    const {user} = req.params    
+    const {user} = req.params
     const expenses = await Expense.aggregate([
                                 {
-                                    $match : { "type" : "expense"}
+                                    $match : { "$and" : [{"type": "expense"} ]}
                                 },
                                 {
                                     $group : {
-                                        _id: "$category",
+                                        _id: "$category", 
+
                                         total: { $sum: { $multiply : [ "$amount" , 1 ] } }
                                     },
-                                }
+                                },
                             ])
-    
+
+
     const result = await category.populate(expenses , {path: "_id"})
 
     return res.status(200).json(result)
