@@ -1,5 +1,6 @@
 const Expense = require("../models/transaction")
 const category = require("../models/category")
+var mongoose = require('mongoose');
 
 
 module.exports.getExpensesByUser = async (req,res)=>{
@@ -141,7 +142,7 @@ module.exports.getbycategories = async(req,res) =>{
     const {user} = req.params
     const expenses = await Expense.aggregate([
                                 {
-                                    $match : { "$and" : [{"type": "expense"} ]}
+                                    $match : { "$and" : [{"type": "expense"} , {"user": mongoose.Types.ObjectId(user)}]}
                                 },
                                 {
                                     $group : {
@@ -154,6 +155,5 @@ module.exports.getbycategories = async(req,res) =>{
 
 
     const result = await category.populate(expenses , {path: "_id"})
-
     return res.status(200).json(result)
 }
