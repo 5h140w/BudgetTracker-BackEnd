@@ -1,5 +1,6 @@
 const Category = require("../models/category")
 const Deposit = require("../models/transaction")
+var mongoose = require('mongoose');
 
 module.exports.getDepositsByUser = async(req,res) =>{
     const{user} = req.params
@@ -142,7 +143,7 @@ module.exports.getbycategories = async(req,res) =>{
     const {user} = req.params
     const deposits = await Deposit.aggregate([
                                 {
-                                    $match : { "type" : "deposit" }
+                                    $match : { "$and" : [{"type": "deposit"} , {"user": mongoose.Types.ObjectId(user)}]}
                                 },
                                 {
                                     $group : {
