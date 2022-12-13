@@ -162,7 +162,7 @@ module.exports.getbycategories = async(req,res) =>{
 module.exports.getMax = async (req, res) =>{
     const {user} = req.params
 
-    const maxDeposit = await Deposit.findOne({user : user}).sort({"amount": -1})
+    const maxDeposit = await Deposit.findOne({user : user , type:"deposit"}).sort({"amount": -1})
 
 
     return res.status(200).json(maxDeposit)

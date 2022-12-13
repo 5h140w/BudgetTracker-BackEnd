@@ -157,3 +157,13 @@ module.exports.getbycategories = async(req,res) =>{
     const result = await category.populate(expenses , {path: "_id"})
     return res.status(200).json(result)
 }
+
+module.exports.getMax = async (req, res) =>{
+    const {user} = req.params
+
+    const maxExpense = await Expense.findOne({user : user , type:"expense"}).sort({"amount": -1})
+
+
+    return res.status(200).json(maxExpense)
+
+}
