@@ -139,9 +139,10 @@ module.exports.getMonthlyDeposit = async (req,res) =>{
 
 
 module.exports.getbycategories = async(req,res) =>{
+    const {user} = req.params
     const deposits = await Deposit.aggregate([
                                 {
-                                    $match : { "type" : "expense"}
+                                    $match : { "type" : "deposit" }
                                 },
                                 {
                                     $group : {
