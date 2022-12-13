@@ -157,3 +157,14 @@ module.exports.getbycategories = async(req,res) =>{
 
     return res.status(200).json(result)
 }
+
+
+module.exports.getMax = async (req, res) =>{
+    const {user} = req.params
+
+    const maxDeposit = await Deposit.findOne({user : user}).sort({"amount": -1})
+
+
+    return res.status(200).json(maxDeposit)
+
+}
