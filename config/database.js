@@ -1,11 +1,9 @@
 const mongoose = require("mongoose")
 
-
-
 module.exports.connect = () =>{
     mongoose
         .connect(
-            "mongodb+srv://Admin:Myperfect23@cluster0.jpxwzal.mongodb.net/?retryWrites=true&w=majority",{
+            "mongodb://localhost:27017/BudgetTracker",{
                 useNewUrlParser:true,
                 useUnifiedTopology: true,
             }
