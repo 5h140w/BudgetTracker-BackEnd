@@ -1,18 +1,18 @@
-const {Router} = require("express")
-const DepositController = require("../controllers/depositController")
+const { Router } = require("express");
+const DepositController = require("../controllers/depositController");
 
-const router = Router()
+const router = Router();
 
-router.get("/:id", DepositController.getDepositByID)
-router.get("/:user/5", DepositController.getlast5Deposits)
-router.get("/user/:user",DepositController.getDepositsByUser)
-router.get("/months/:user", DepositController.getDepositsPerMonth)
-router.get("/month/:user" , DepositController.getMonthlyDeposit)
-router.get("/category/:user" , DepositController.getbycategories)
-router.get("/max/:user" , DepositController.getMax)
-router.post("/",DepositController.addDeposit)
-router.put("/:id", DepositController.changDeposit)
-router.delete("/user/:user", DepositController.deleteAllDeposits)
-router.delete("/user/:user/:id", DepositController.deleteDepositByid)
+router.get("/:id", DepositController.getDepositByID);
+router.get("/:user/5", DepositController.getlast5Deposits);
+router.get("/user/:user", DepositController.getDepositsByUser);
+router.get("/months/:user", DepositController.getDepositsPerMonth);
+router.get("/month/:user", DepositController.getMonthlyDeposit);
+router.get("/category/:user", DepositController.getbycategories);
+router.get("/max/:user", DepositController.getMax);
+router.post("/", DepositController.addDeposit);
+router.put("/:id", DepositController.changDeposit);
+router.delete("/user/:user", DepositController.deleteAllDeposits);
+router.delete("/user/:user/:id", DepositController.deleteDepositByid);
 
-module.exports = router
+module.exports = router;
