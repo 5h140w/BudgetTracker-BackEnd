@@ -5,7 +5,7 @@ module.exports.getAllCategories = async (req, res) => {
     const categories = await Category.find();
     return res.status(200).json(categories);
   } catch (err) {
-    return res.status(404).json({ msg: err });
+    return res.status(404).json({ msg: "error" });
   }
 };
 
